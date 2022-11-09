@@ -2604,3 +2604,9 @@ ul.breadcrumb li:last-child {
     margin-bottom: 10px;
   }
 }
+body {
+  background-image: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
