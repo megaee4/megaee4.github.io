@@ -2607,7 +2607,7 @@ ul.breadcrumb li:last-child {
   }
 }
 body {
-  background: url("/images/avatar.jpg");
+  background: url("/images/background.JPG");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
