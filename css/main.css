@@ -2584,6 +2584,13 @@ ul.breadcrumb li:last-child {
 .links-of-author-item a:hover {
   background: var(--body-bg-color);
 }
+body {
+  background: url("/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
 .main-inner {
   background: var(--content-bg-color);
   box-shadow: initial;
