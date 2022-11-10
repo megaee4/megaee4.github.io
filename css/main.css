@@ -2585,7 +2585,7 @@ ul.breadcrumb li:last-child {
   background: var(--body-bg-color);
 }
 body {
-  background: url("/images/background.jpg");
+  background: url("/images/avatar.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
