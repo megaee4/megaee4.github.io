@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
@@ -227,6 +227,98 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="Megaee的摸鱼日记"><a href="#Megaee的摸鱼日记" class="headerlink" title="Megaee的摸鱼日记"></a>Megaee的摸鱼日记</h1><img src="/1111/11/11/Megaee%E7%9A%84%E6%91%B8%E9%B1%BC%E6%97%A5%E8%AE%B0/shizuku.JPG" class="" title="这是一张图片">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/11/ML-chapter1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Megaee">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/11/11/ML-chapter1/" class="post-title-link" itemprop="url">ML chapter1</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-11-11 11:40:35 / Modified: 14:40:06" itemprop="dateCreated datePublished" datetime="2022-11-11T11:40:35+08:00">2022-11-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-learning/" itemprop="url" rel="index"><span itemprop="name">Machine learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Polynomial-Curve-Fitting"><a href="#Polynomial-Curve-Fitting" class="headerlink" title="Polynomial Curve Fitting"></a><strong>Polynomial Curve Fitting</strong></h2><p>$$<br>y(x,\vec w) = w_0 + w_1x + w_2x^2+\cdots+w_Mx_M = \displaystyle\sum_{j=0}^{M}w_jx^j<br>$$<br>minimize an <em>error function</em> that measures the misfit between the function  $y$.</p>
+<p>One simple choice of error function, which is widely used, is given by the sum of the squares of the errors between the predictions $y(x_n, \vec w)$ for each data point $x_n$ and the corresponding target values $t_n$  :<br>$$<br>E(\vec w) = \dfrac{1}{2}\displaystyle\sum_{n=1}^{N}[y(x,\vec w)-t_n]^2<br>$$</p>
+<p>find $\vec w^\star$ such that $E(\vec w)$ is as small as possible.</p>
+<p>choose $M$ : <em>model comparison or model selection</em> </p>
+<p>overfitting:</p>
+<img src="/2022/11/11/ML-chapter1/1.png" class="" title="这是一张图片">
+
+<p>RMS:<br>$$<br>E_{RMS} = \sqrt{2E(\vec w^\star)/N}<br>$$<br>By adopting a <strong>Bayesian approach</strong>, the over-fitting problem can be avoided.  </p>
+<p>Indeed, in a Bayesian model the effective number of parameters adapts automatically to the size of the data set.  </p>
+<p><strong>regularization</strong><br>$$<br>\tilde{E}(\vec w)= \dfrac{1}{2}\displaystyle\sum_{n=1}^{N}[y(x,\vec w)-t_n]^2 + \dfrac{\lambda}{2}\lVert\vec w\rVert^2<br>$$<br>the coefficient $\lambda$ governs the relative importance of the regularization term compared with the sum-of-squares error term.  </p>
+<p>Also known as ridge regression.</p>
+<h2 id="Bayesian-Probabilities"><a href="#Bayesian-Probabilities" class="headerlink" title="Bayesian Probabilities"></a><strong>Bayesian Probabilities</strong></h2><p>$$<br>p(\mathbf {w}|\mathcal{D})=\dfrac{p(\mathcal{D}|\mathbf w)p(\mathbf w)}{p(\mathcal D)}<br>$$</p>
+<p>$$<br>p(\mathcal D) = \int p(\mathcal{D}|\mathbf w)p(\mathbf w)\mathrm d \mathbf w<br>$$</p>
+<p>$$<br>\text{posterprior}\varpropto \text{likelihood}\times \text{prior}<br>$$<br><strong>Maximum Likelihood</strong> : choose $\mathbf w$ to maximize $p(\mathcal D|\mathbf w)$, <em>error function</em> with negative log.</p>
 
       
     </div>
