@@ -281,9 +281,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-11-21 14:46:03 / Modified: 20:02:56" itemprop="dateCreated datePublished" datetime="2022-11-21T14:46:03+08:00">2022-11-21</time>
+      <time title="Created: 2022-11-21 14:46:03" itemprop="dateCreated datePublished" datetime="2022-11-21T14:46:03+08:00">2022-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-22 16:52:18" itemprop="dateModified" datetime="2022-11-22T16:52:18+08:00">2022-11-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -317,6 +323,18 @@
 <p>$x[rd] = sext(immediate[31:12] &lt;&lt; 12)$</p>
 <p><strong>auipc</strong>:</p>
 <p>$x[rd] = pc + sext(immediate[31:12] &lt;&lt; 12)$</p>
+<p><strong>一些csr相关的，在lab2中用到：</strong></p>
+<p><strong>csrrw</strong>:</p>
+<p>csrrw rd,offset,rs1</p>
+<p>$t = CSRs[csr]; CSRs[csr] = x[rs1]; x[rd] = t$</p>
+<p><strong>csrrs</strong>:</p>
+<p>csrrs rd,offset,rs1</p>
+<p>Any bit that is high in rs1 will cause the corresponding bit to be set in the CSR, if that CSR bit is writable. Other bits in the CSR are unaffected (though CSRs might have side effects when written).</p>
+<p>$t = CSRs[csr]; CSRs[csr] = t | x[rs1]; x[rd] = t$</p>
+<p><strong>csrrc</strong>:</p>
+<p>csrrc rd,offset,rs1</p>
+<p>Any bit that is high in rs1 will cause the corresponding bit to be cleared in the CSR, if that CSR bit is writable. Other bits in the CSR are unaffected.</p>
+<p>$t = CSRs[csr]; CSRs[csr] = t &amp;∼x[rs1]; x[rd] = t$</p>
 <h2 id="取指"><a href="#取指" class="headerlink" title="取指"></a>取指</h2><ul>
 <li>取出PC地址的指令</li>
 <li>修改PC的值<ul>
@@ -352,7 +370,12 @@
 
 
 
-<h2 id="访存"><a href="#访存" class="headerlink" title="访存"></a>访存</h2><h2 id="写回"><a href="#写回" class="headerlink" title="写回"></a>写回</h2>
+<h2 id="访存"><a href="#访存" class="headerlink" title="访存"></a>访存</h2><ul>
+<li>读内存，判断是lb, lbu, lh, lhu, lw，根据不同指令取不同位数</li>
+<li>写内存，根据不同指令取不同位数</li>
+</ul>
+<h2 id="写回"><a href="#写回" class="headerlink" title="写回"></a>写回</h2><p>没什么好说的。</p>
+
       
     </div>
 
