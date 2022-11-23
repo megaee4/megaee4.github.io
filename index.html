@@ -289,7 +289,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-22 16:52:18" itemprop="dateModified" datetime="2022-11-22T16:52:18+08:00">2022-11-22</time>
+      <time title="Modified: 2022-11-23 11:39:21" itemprop="dateModified" datetime="2022-11-23T11:39:21+08:00">2022-11-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -334,7 +334,7 @@
 <p><strong>csrrc</strong>:</p>
 <p>csrrc rd,offset,rs1</p>
 <p>Any bit that is high in rs1 will cause the corresponding bit to be cleared in the CSR, if that CSR bit is writable. Other bits in the CSR are unaffected.</p>
-<p>$t = CSRs[csr]; CSRs[csr] = t &amp;∼x[rs1]; x[rd] = t$</p>
+<p>$t = CSRs[csr]; CSRs[csr] = t \land ∼x[rs1]; x[rd] = t$</p>
 <h2 id="取指"><a href="#取指" class="headerlink" title="取指"></a>取指</h2><ul>
 <li>取出PC地址的指令</li>
 <li>修改PC的值<ul>
