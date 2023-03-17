@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/180.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="知识图谱与FOIL实验题目 编写程序，实现 FOIL（First Order Inductive Learner）算法，对如下给定的知识图谱和目标谓词进行规则学习，并得到新的以目标谓词为关系的事实（用一阶逻辑表示）。 给定的知识图谱所有三元组的一阶逻辑如下： $Father(Jack,Dell)$ $Father(Dell,Stephen)$ $Grandfather(Jack,Stephen)$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知识图谱与FOIL算法">
+<meta property="og:url" content="http://example.com/2023/03/17/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%8EFOIL%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="Megaee的小屋">
+<meta property="og:description" content="知识图谱与FOIL实验题目 编写程序，实现 FOIL（First Order Inductive Learner）算法，对如下给定的知识图谱和目标谓词进行规则学习，并得到新的以目标谓词为关系的事实（用一阶逻辑表示）。 给定的知识图谱所有三元组的一阶逻辑如下： $Father(Jack,Dell)$ $Father(Dell,Stephen)$ $Grandfather(Jack,Stephen)$">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-17T14:15:52.000Z">
+<meta property="article:modified_time" content="2023-03-17T14:21:19.835Z">
+<meta property="article:author" content="Megaee">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/03/17/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%8EFOIL%E7%AE%97%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/03/17/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%8EFOIL%E7%AE%97%E6%B3%95/","path":"2023/03/17/知识图谱与FOIL算法/","title":"知识图谱与FOIL算法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>知识图谱与FOIL算法 | Megaee的小屋</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Megaee的小屋</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">我，再生产！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%8EFOIL"><span class="nav-number">1.</span> <span class="nav-text">知识图谱与FOIL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">实验题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1"><span class="nav-number">1.2.1.</span> <span class="nav-text">知识图谱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E7%BA%B3%E5%AD%A6%E4%B9%A0-FOIL"><span class="nav-number">1.2.2.</span> <span class="nav-text">归纳学习 - FOIL</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Megaee"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Megaee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/megaee4" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;megaee4" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1942064163&auto=1&height=66"></iframe>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/17/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%8EFOIL%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Megaee">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="知识图谱与FOIL算法 | Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          知识图谱与FOIL算法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-03-17 22:15:52 / Modified: 22:21:19" itemprop="dateCreated datePublished" datetime="2023-03-17T22:15:52+08:00">2023-03-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">Artificial Intelligence</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="知识图谱与FOIL"><a href="#知识图谱与FOIL" class="headerlink" title="知识图谱与FOIL"></a>知识图谱与FOIL</h1><h2 id="实验题目"><a href="#实验题目" class="headerlink" title="实验题目"></a>实验题目</h2><ul>
+<li>编写程序，实现 FOIL（First Order Inductive Learner）算法，对如下给定的知识图谱和目标谓词进行规则学习，并得到新的以目标谓词为关系的事实（用一阶逻辑表示）。<ul>
+<li>给定的知识图谱所有三元组的一阶逻辑如下：<ul>
+<li>$Father(Jack,Dell)$</li>
+<li>$Father(Dell,Stephen)$</li>
+<li>$Grandfather(Jack,Stephen)$</li>
+<li>$Father(Dell,Seth)$</li>
+</ul>
+</li>
+<li>目标谓词：<ul>
+<li>$Grandfather(x,y)$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>要求的输入输出模式如下：<ul>
+<li>输入格式<ul>
+<li>第 $1$ 行：知识图谱的三元组数目 $n$</li>
+<li>第 $2 \sim (n+1)$行：三元组的一阶逻辑表示，例如 $L(David,Mike)$</li>
+<li>第 $(n+2)$ 行：目标谓词，即 $Grandfather(x,y)$</li>
+</ul>
+</li>
+<li>输出格式<ul>
+<li>第 $1$ 行：以目标谓词和前提约束谓词组成的规则推理，例如： $Mother(z, y) \wedge Couple(x,z)\rightarrow Father(x, y)$</li>
+<li>第2行及以后：每一行输出一条推理所得事实，用一阶逻辑表示，例如 $H(David,Ann)$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><h3 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h3><p>知识图谱是一种包含多种关系的图。任一节点是一个实体，任一条边表示两个节点之间的关系。</p>
+<p>对于知识图谱的任意两个相连节点以及连接的边，可以用三元组表示为一阶逻辑。</p>
+<p>从知识图谱中，可以归纳推理得到新的知识。</p>
+<h3 id="归纳学习-FOIL"><a href="#归纳学习-FOIL" class="headerlink" title="归纳学习 - FOIL"></a>归纳学习 - FOIL</h3><p>我们使用 FOIL (First Order Inductive Learning) 算法来进行归纳推理。</p>
+<p>根据给定的目标谓词，我们可以从知识图谱中提取出：</p>
+<ul>
+<li>正例，也就是目标谓词的实例化结果</li>
+<li>反例，若两个实体的关系一定与目标谓词相悖</li>
+<li>背景知识，目标谓词以外的其他谓词实例化结果</li>
+</ul>
+<p>我们给目标谓词加上若干前提约束谓词，直到推理规则不覆盖任何反例。增加前提后，对目标谓词或前提约束谓词中的变量依<br>据背景知识赋予具体值，可以得到其正例与反例数量。</p>
+<p>我们引入信息量的概念：<br>$$<br>I(x)=-\log p(x)<br>$$<br>其中 $p(x)$ 为取事件 $x$ 的概率。</p>
+<p>在增加前提约束谓词中，由信息量的公式，可以计算 FOIL 信息增益<br>$$<br>\text{FOIL_Gain}=\hat{m}<em>{+}(\log_2\dfrac{\hat{m}</em>+}{\hat{m}<em>++\hat{m}</em>-}-\log_2\dfrac{m_+}{m_++m_-})<br>$$<br>其中 $\hat{m}<em>+$ 与 $\hat{m}</em>-$ 为增加前提约束谓词的规则后所覆盖的正例与反例数量，$m_+$ 与 $m_-$ 是原推理规则所覆盖的正例与反例数量。</p>
+<p>选取使信息增益最大的前提约束谓词，并重复该过程，直到推理规则覆盖训练样本集合中正例，不覆盖任意反例。</p>
+<p>整个算法的流程如下：</p>
+<ol>
+<li>从知识图谱中提取正例，反例，背景知识。</li>
+<li>依次将谓词加入到推理规则中作为前提约束谓词。</li>
+<li>计算加入前提后的 FOIL 信息增益。</li>
+<li>选取使信息增益最大的前提约束谓词，加入推理规则。</li>
+<li>重复 2~4，直到推理规则覆盖训练样本集合中正例，不覆盖任意反例。</li>
+</ol>
+<p>下面的代码是实现 FOIL 算法的主要代码。对于每个前提约束谓词，尝试将其加入到现有规则中，并计算 $\text{FOIL_GAIN}$，选择使信息增益最大的前提约束谓词，将其加入现有规则，并重复这一过程直到规则覆盖所有正例，并不覆盖任何负例。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">getPres</span>(<span class="params">res, sentences, prem, added</span>):</span><br><span class="line">    <span class="comment"># get the reasoning result</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        maxgain = -<span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">        maxprem = sentence(<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">        mpos, mneg = getPosAndNeg(res, sentences, added)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> prem:</span><br><span class="line">            <span class="comment"># find the premise with largest FOIL_GAIN</span></span><br><span class="line">            added.append(i) <span class="comment"># add i into premises</span></span><br><span class="line">            newpos, newneg = getPosAndNeg(res, sentences, added) <span class="comment"># get \hat&#123;m&#125;_+ and \hat&#123;m&#125;_-</span></span><br><span class="line">            gain = informationGain(mpos, mneg, newpos, newneg) <span class="comment"># calculate FOIL_GAIN</span></span><br><span class="line">            <span class="keyword">if</span> gain &gt; maxgain:</span><br><span class="line">                maxgain = gain</span><br><span class="line">                maxprem = i</span><br><span class="line">            added.remove(i)</span><br><span class="line">        added.append(maxprem)</span><br><span class="line">        prem.remove(maxprem)</span><br><span class="line">        newpos, newneg = getPosAndNeg(res, sentences, added)</span><br><span class="line">        <span class="keyword">if</span> newpos == mpos <span class="keyword">and</span> newneg == <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># if any negative example is not covered and all positive examples are covered</span></span><br><span class="line">            <span class="keyword">return</span> added          </span><br><span class="line">    <span class="keyword">return</span> added</span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/01/01/%E4%BB%8E%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E5%BC%80%E5%A7%8B/" rel="prev" title="从最长公共子序列开始">
+                  <i class="fa fa-chevron-left"></i> 从最长公共子序列开始
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Megaee</span>
+</div>
+
+    </div>
+  </footer>
+  <script src="/live2d-widget-master/live2d-widget-master/autoload.js"></script>
+  
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
