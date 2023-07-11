@@ -127,14 +127,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
@@ -227,6 +231,95 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="Megaee的摸鱼日记"><a href="#Megaee的摸鱼日记" class="headerlink" title="Megaee的摸鱼日记"></a>Megaee的摸鱼日记</h1><img src="/1111/11/11/Megaee%E7%9A%84%E6%91%B8%E9%B1%BC%E6%97%A5%E8%AE%B0/shizuku.JPG" class="" title="这是一张图片">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/21/Pell%E6%96%B9%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Megaee">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/21/Pell%E6%96%B9%E7%A8%8B/" class="post-title-link" itemprop="url">Pell方程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-21 15:20:51" itemprop="dateCreated datePublished" datetime="2023-04-21T15:20:51+08:00">2023-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-07-11 10:11:53" itemprop="dateModified" datetime="2023-07-11T10:11:53+08:00">2023-07-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>若 $D$ 不为完全平方数，形如<br>$$<br>x^2-Dy^2=1<br>$$<br>的方程称为为佩尔方程。</p>
+<p>如果 $(x_1,y_1)$, $(x_2,y_2)$ 都为 $x^2-Dy^2=1$ 的一组整数解，那么<br>$$<br>\begin{aligned}<br>X&amp;=x_1x_2+Dy_1y_2\\<br>Y&amp;=x_1y_2+x_2y_1<br>\end{aligned}<br>$$<br>也是方程的一组整数解。这可以直接代回原方程来验证。</p>
+<p>推广：对于方程<br>$$<br>x^2-Dy^2=k<br>$$<br>我们考虑与其对应的方程：<br>$$<br>x^2-Dy^2=1<br>$$<br>解得该方程的解 $(r,s)$，那么原方程的解 $(p,q)$ 形式如下：<br>$$<br>(pr\pm Dqs,ps\pm qr)<br>$$</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>求满足<br>$$<br>\sqrt{5n^2+4}=k<br>$$</p>
+<p>的所有正整数解。</p>
+<p>$$<br>\sqrt{5n^2+4}=k<br>$$</p>
+<p>对应佩尔方程<br>$$<br>x^2-5y^2=4<br>$$<br>我们要求上式中的 $y$。我们观察到<br>$$<br>x^2-5y^2=1<br>$$<br>的最小正整数解为 $(9,4)$。</p>
+<p>于是该方程中所有的解满足：<br>$$<br>(x+\sqrt5y)(x-\sqrt5y)=(9^2-5\times 4^2)^n=(9+4\sqrt5)^n(9-4\sqrt5)^n=1\<br>$$</p>
+<p>$$<br>x_n=9x_{n-1}\pm20y_{n-1}\\<br>y_n=4x_{n-1}\pm9y_{n-1}<br>$$</p>
+<p>于是<br>$$<br>x_n=\dfrac{(9+4\sqrt5)^n+(9-4\sqrt5)^n}{2}\\<br>y_n=\dfrac{(9+4\sqrt5)^n-(9-4\sqrt5)^n}{2\sqrt{5}}<br>$$<br>取 $r_n=x_n,s_n=y_n$</p>
+<p>原方程的最小正整数解为 $(3,1)$</p>
+<p>于是原方程的解满足<br>$$<br>x_n=3r_n\pm 5s_n\\<br>y_n=3s_n\pm r_n<br>$$<br>于是我们有<br>$$<br>y_n=3\dfrac{(9+4\sqrt5)^n+(9-4\sqrt5)^n}{2}+\dfrac{(9+4\sqrt5)^n-(9-4\sqrt5)^n}{2\sqrt{5}}<br>$$</p>
+<p>不想化简这个式子，但这大概是猜不出这道题最简单的解法的情况下最好的做法了。</p>
+<p>不过可以观察得到，序列 $y_n$ 为 ${1,3,8,21,…}$，对比斐波那契数列 ${1,1,2,3,5,8,13, 21}$，发现 $y_n$ 就是斐波那契数列的偶数项，这题就做完了。</p>
 
       
     </div>
@@ -965,9 +1058,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-11-11 11:40:35 / Modified: 14:40:06" itemprop="dateCreated datePublished" datetime="2022-11-11T11:40:35+08:00">2022-11-11</time>
+      <time title="Created: 2022-11-11 11:40:35" itemprop="dateCreated datePublished" datetime="2022-11-11T11:40:35+08:00">2022-11-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-07-11 10:09:46" itemprop="dateModified" datetime="2023-07-11T10:09:46+08:00">2023-07-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -975,7 +1074,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Machine-learning/" itemprop="url" rel="index"><span itemprop="name">Machine learning</span></a>
+          <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">Artificial Intelligence</span></a>
         </span>
     </span>
 

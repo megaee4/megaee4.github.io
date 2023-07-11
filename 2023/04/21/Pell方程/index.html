@@ -21,23 +21,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Megaee的小屋">
-<meta property="og:url" content="http://example.com/categories/test/index.html">
+    <meta name="description" content="原理若 $D$ 不为完全平方数，形如$$x^2-Dy^2&#x3D;1$$的方程称为为佩尔方程。 如果 $(x_1,y_1)$, $(x_2,y_2)$ 都为 $x^2-Dy^2&#x3D;1$ 的一组整数解，那么$$\begin{aligned}X&amp;&#x3D;x_1x_2+Dy_1y_2\\Y&amp;&#x3D;x_1y_2+x_2y_1\end{aligned}$$也是方程的一组整数解。这可以直接代回原方程来验证。 推广">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pell方程">
+<meta property="og:url" content="http://example.com/2023/04/21/Pell%E6%96%B9%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Megaee的小屋">
+<meta property="og:description" content="原理若 $D$ 不为完全平方数，形如$$x^2-Dy^2&#x3D;1$$的方程称为为佩尔方程。 如果 $(x_1,y_1)$, $(x_2,y_2)$ 都为 $x^2-Dy^2&#x3D;1$ 的一组整数解，那么$$\begin{aligned}X&amp;&#x3D;x_1x_2+Dy_1y_2\\Y&amp;&#x3D;x_1y_2+x_2y_1\end{aligned}$$也是方程的一组整数解。这可以直接代回原方程来验证。 推广">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-21T07:20:51.000Z">
+<meta property="article:modified_time" content="2023-07-11T02:11:53.715Z">
 <meta property="article:author" content="Megaee">
+<meta property="article:tag" content="Data Structure and Algorithm">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/categories/test/">
+<link rel="canonical" href="http://example.com/2023/04/21/Pell%E6%96%B9%E7%A8%8B/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"categories/test/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/04/21/Pell%E6%96%B9%E7%A8%8B/","path":"2023/04/21/Pell方程/","title":"Pell方程"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Category: test | Megaee的小屋</title>
+<title>Pell方程 | Megaee的小屋</title>
   
 
 
@@ -100,7 +105,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -113,6 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">应用</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -159,50 +165,111 @@
 
     </div>
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">test
-          <small>Category</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/21/Pell%E6%96%B9%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Megaee">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Pell方程 | Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Pell方程
         </h1>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">1111</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-21 15:20:51" itemprop="dateCreated datePublished" datetime="2023-04-21T15:20:51+08:00">2023-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-07-11 10:11:53" itemprop="dateModified" datetime="2023-07-11T10:11:53+08:00">2023-07-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>若 $D$ 不为完全平方数，形如<br>$$<br>x^2-Dy^2=1<br>$$<br>的方程称为为佩尔方程。</p>
+<p>如果 $(x_1,y_1)$, $(x_2,y_2)$ 都为 $x^2-Dy^2=1$ 的一组整数解，那么<br>$$<br>\begin{aligned}<br>X&amp;=x_1x_2+Dy_1y_2\\<br>Y&amp;=x_1y_2+x_2y_1<br>\end{aligned}<br>$$<br>也是方程的一组整数解。这可以直接代回原方程来验证。</p>
+<p>推广：对于方程<br>$$<br>x^2-Dy^2=k<br>$$<br>我们考虑与其对应的方程：<br>$$<br>x^2-Dy^2=1<br>$$<br>解得该方程的解 $(r,s)$，那么原方程的解 $(p,q)$ 形式如下：<br>$$<br>(pr\pm Dqs,ps\pm qr)<br>$$</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>求满足<br>$$<br>\sqrt{5n^2+4}=k<br>$$</p>
+<p>的所有正整数解。</p>
+<p>$$<br>\sqrt{5n^2+4}=k<br>$$</p>
+<p>对应佩尔方程<br>$$<br>x^2-5y^2=4<br>$$<br>我们要求上式中的 $y$。我们观察到<br>$$<br>x^2-5y^2=1<br>$$<br>的最小正整数解为 $(9,4)$。</p>
+<p>于是该方程中所有的解满足：<br>$$<br>(x+\sqrt5y)(x-\sqrt5y)=(9^2-5\times 4^2)^n=(9+4\sqrt5)^n(9-4\sqrt5)^n=1\<br>$$</p>
+<p>$$<br>x_n=9x_{n-1}\pm20y_{n-1}\\<br>y_n=4x_{n-1}\pm9y_{n-1}<br>$$</p>
+<p>于是<br>$$<br>x_n=\dfrac{(9+4\sqrt5)^n+(9-4\sqrt5)^n}{2}\\<br>y_n=\dfrac{(9+4\sqrt5)^n-(9-4\sqrt5)^n}{2\sqrt{5}}<br>$$<br>取 $r_n=x_n,s_n=y_n$</p>
+<p>原方程的最小正整数解为 $(3,1)$</p>
+<p>于是原方程的解满足<br>$$<br>x_n=3r_n\pm 5s_n\\<br>y_n=3s_n\pm r_n<br>$$<br>于是我们有<br>$$<br>y_n=3\dfrac{(9+4\sqrt5)^n+(9-4\sqrt5)^n}{2}+\dfrac{(9+4\sqrt5)^n-(9-4\sqrt5)^n}{2\sqrt{5}}<br>$$</p>
+<p>不想化简这个式子，但这大概是猜不出这道题最简单的解法的情况下最好的做法了。</p>
+<p>不过可以观察得到，序列 $y_n$ 为 ${1,3,8,21,…}$，对比斐波那契数列 ${1,1,2,3,5,8,13, 21}$，发现 $y_n$ 就是斐波那契数列的偶数项，这题就做完了。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="1111-11-11T11:11:54+08:05"
-              content="1111-11-11">
-          11-11
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/1111/11/11/Megaee%E7%9A%84%E6%91%B8%E9%B1%BC%E6%97%A5%E8%AE%B0/" itemprop="url">
-            <span itemprop="name">Megaee的摸鱼日记</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Data-Structure-and-Algorithm/" rel="tag"># Data Structure and Algorithm</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/17/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%8EFOIL%E7%AE%97%E6%B3%95/" rel="prev" title="知识图谱与FOIL算法">
+                  <i class="fa fa-chevron-left"></i> 知识图谱与FOIL算法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
+
 
 </div>
   </main>
