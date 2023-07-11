@@ -41,7 +41,7 @@
 <meta property="og:image" content="http://example.com/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/mat2_unk.png">
 <meta property="og:image" content="http://example.com/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/mat1_unk.png">
 <meta property="article:published_time" content="2023-07-11T02:14:50.000Z">
-<meta property="article:modified_time" content="2023-07-11T02:23:56.890Z">
+<meta property="article:modified_time" content="2023-07-11T02:42:06.419Z">
 <meta property="article:author" content="Megaee">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/alg.png">
@@ -214,7 +214,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-07-11 10:14:50 / Modified: 10:23:56" itemprop="dateCreated datePublished" datetime="2023-07-11T10:14:50+08:00">2023-07-11</time>
+      <time title="Created: 2023-07-11 10:14:50 / Modified: 10:42:06" itemprop="dateCreated datePublished" datetime="2023-07-11T10:14:50+08:00">2023-07-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -348,9 +348,9 @@
 <h5 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h5><p>通常我们称更新参数的算法为优化器。</p>
 <p>在这里我们使用的优化器主要是 SGD 与 Adam。</p>
 <ul>
-<li><p>SGD 是随机梯度下降法。我们记需要优化的参数为 $w$，损失函数为 $L$，学习率为 $\eta$ 则 SGD 算法更新参数的公式为：<br>$$<br>w=w-\eta\dfrac{\part L}{\part w}<br>$$<br>该算法计算简单，易于实现，但是容易陷入局部最优解。</p>
+<li><p>SGD 是随机梯度下降法。我们记需要优化的参数为 $w$，损失函数为 $L$，学习率为 $\eta$ 则 SGD 算法更新参数的公式为：<br>$$<br>w=w-\eta\dfrac{\partial L}{\partial w}<br>$$<br>该算法计算简单，易于实现，但是容易陷入局部最优解。</p>
 </li>
-<li><p>Adam 是自适应矩估计法。在 Adam 中，我们引入动量的概念。首先是一阶动量：<br>$$<br>m_t=\beta_1m_{t-1}+(1-\beta_1)g_t<br>$$<br>其中 $g_t=\dfrac{\part L}{\part w}$。同样还有二阶动量：<br>$$<br>v_t=\beta_2v_{t-1}+(1-\beta_2)g_t^2<br>$$<br>我们对 $m_t$ 与 $v_t$ 进行偏差校正：<br>$$<br>\begin{aligned}<br>\hat{m_t}&amp;=\dfrac{m_t}{1-\beta_1^t}\\<br>\hat{v_t}&amp;=\dfrac{v_t}{1-\beta_2^t}<br>\end{aligned}<br>$$</p>
+<li><p>Adam 是自适应矩估计法。在 Adam 中，我们引入动量的概念。首先是一阶动量：<br>$$<br>m_t=\beta_1m_{t-1}+(1-\beta_1)g_t<br>$$<br>其中 $g_t=\dfrac{\partial L}{\partial w}$。同样还有二阶动量：<br>$$<br>v_t=\beta_2v_{t-1}+(1-\beta_2)g_t^2<br>$$<br>我们对 $m_t$ 与 $v_t$ 进行偏差校正：<br>$$<br>\begin{aligned}<br>\hat{m_t}&amp;=\dfrac{m_t}{1-\beta_1^t}\\<br>\hat{v_t}&amp;=\dfrac{v_t}{1-\beta_2^t}<br>\end{aligned}<br>$$</p>
 </li>
 </ul>
 <p>  于是 Adam 更新参数的公式如下：<br>$$<br>  w=w-\eta\dfrac{\hat {m_t}}{\sqrt{\hat {v_t}}+\epsilon}<br>$$</p>
@@ -422,8 +422,8 @@
 <li>我们首先生成伪标签，具体做法是采用之前提到的方案三，也就是直接用关键词作为词向量训练分类器，然后用这个分类器去对所有的文本进行标记，在其中取出 M 个置信度较高的。</li>
 <li>对 20ns，取 M = 6000，K = 6000。</li>
 <li>对 agnews，取 M = 4500，K = 5500。</li>
-<li>Bag-of-Words模型，在20ns上准确率为 **48.66%**，f1_score为 <strong>0.4759</strong>（M = 4500, K = 4000）；在 agnews 上准确率为 **72.18%**，f1_score为 <strong>0.7126</strong>。</li>
-<li>Tfidf模型，在20ns上准确率为 <strong>57.17%<strong>，f1_score为</strong>0.5411</strong>（M = 6000, K = 6000）；在agnews上准确率为<strong>72.50%<strong>，f1_score为</strong>0.6965</strong>。</li>
+<li>Bag-of-Words模型，在20ns上准确率为 <strong>0.4866</strong>，f1_score为 <strong>0.4759</strong>（M = 4500, K = 4000）；在 agnews 上准确率为 <strong>0.7218</strong>，f1_score为 <strong>0.7126</strong>。</li>
+<li>Tfidf模型，在20ns上准确率为 <strong>0.5717</strong>，f1_score为<strong>0.5411</strong>（M = 6000, K = 6000）；在agnews上准确率为<strong>0.7250</strong>，f1_score为<strong>0.6965</strong>。</li>
 </ul>
 <p>我们使用 Tfidf 时的混淆矩阵分别如下：</p>
 <p>20ns：</p>
@@ -454,13 +454,13 @@
 </ul>
 <p>似乎 CNN 在这个任务中的表现还不如更为简单的逻辑回归。但这可能是因为我还没有花很多的时间去调参，甚至有可能是因为迭代的次数不够。</p>
 <h3 id="未知类别识别"><a href="#未知类别识别" class="headerlink" title="未知类别识别"></a>未知类别识别</h3><p>这里我们使用的策略是基于置信度的拒绝。我们还是按照之前的自训练方法进行训练，将预测置信度低于某个阈值的文本预测为未知类别。</p>
-<p>首先看这个方法在 agnews 上的结果。我们迭代 4 次停止训练，得到的准确率为 **59.08%**，f1_score 为 <strong>0.5816</strong>。如果我们不进行未知类别识别，准确率为 **57.11%**，未知类型识别带来了接近 2% 的提升。</p>
+<p>首先看这个方法在 agnews 上的结果。我们迭代 4 次停止训练，得到的准确率为 **0.5908%**，f1_score 为 <strong>0.5816</strong>。如果我们不进行未知类别识别，准确率为 **0.5711%**，未知类型识别带来了接近 2% 的提升。</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\mat2_unk.png) -->
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/mat2_unk.png" class="" title="这是一张图片">
 
 
 
-<p>在 20ns 上，准确率为 **49.21%**，f1_score 为 <strong>0.4986</strong>。如果不进行未知类别识别，准确率为 **48.38%**。</p>
+<p>在 20ns 上，准确率为 **0.4921%**，f1_score 为 <strong>0.4986</strong>。如果不进行未知类别识别，准确率为 **0.4838%**。</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\mat1_unk.png) -->
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/mat1_unk.png" class="" title="这是一张图片">
 
@@ -472,7 +472,7 @@
 </ul>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349107869">半监督学习 - 知乎 (zhihu.com)</a></li>
-<li>[Understanding Deep Learning Algorithms that Leverage Unlabeled Data, Part 1: Self-training | SAIL Blog (stanford.edu)]</li>
+<li><a target="_blank" rel="noopener" href="http://ai.stanford.edu/blog/understanding-self-training/">Understanding Deep Learning Algorithms that Leverage Unlabeled Data, partial 1: Self-training | SAIL Blog (stanford.edu)</a></li>
 </ol>
 
     </div>
