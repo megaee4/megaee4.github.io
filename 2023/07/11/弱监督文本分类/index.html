@@ -41,7 +41,7 @@
 <meta property="og:image" content="http://example.com/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/mat2_unk.png">
 <meta property="og:image" content="http://example.com/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/mat1_unk.png">
 <meta property="article:published_time" content="2023-07-11T02:14:50.000Z">
-<meta property="article:modified_time" content="2023-07-11T02:42:06.419Z">
+<meta property="article:modified_time" content="2023-07-11T02:44:41.212Z">
 <meta property="article:author" content="Megaee">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/alg.png">
@@ -214,7 +214,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-07-11 10:14:50 / Modified: 10:42:06" itemprop="dateCreated datePublished" datetime="2023-07-11T10:14:50+08:00">2023-07-11</time>
+      <time title="Created: 2023-07-11 10:14:50 / Modified: 10:44:41" itemprop="dateCreated datePublished" datetime="2023-07-11T10:14:50+08:00">2023-07-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -454,13 +454,13 @@
 </ul>
 <p>似乎 CNN 在这个任务中的表现还不如更为简单的逻辑回归。但这可能是因为我还没有花很多的时间去调参，甚至有可能是因为迭代的次数不够。</p>
 <h3 id="未知类别识别"><a href="#未知类别识别" class="headerlink" title="未知类别识别"></a>未知类别识别</h3><p>这里我们使用的策略是基于置信度的拒绝。我们还是按照之前的自训练方法进行训练，将预测置信度低于某个阈值的文本预测为未知类别。</p>
-<p>首先看这个方法在 agnews 上的结果。我们迭代 4 次停止训练，得到的准确率为 **0.5908%**，f1_score 为 <strong>0.5816</strong>。如果我们不进行未知类别识别，准确率为 **0.5711%**，未知类型识别带来了接近 2% 的提升。</p>
+<p>首先看这个方法在 agnews 上的结果。我们迭代 4 次停止训练，得到的准确率为 <strong>0.5908</strong>，f1_score 为 <strong>0.5816</strong>。如果我们不进行未知类别识别，准确率为 <strong>0.5711</strong>，未知类型识别带来了接近 2% 的提升。</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\mat2_unk.png) -->
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/mat2_unk.png" class="" title="这是一张图片">
 
 
 
-<p>在 20ns 上，准确率为 **0.4921%**，f1_score 为 <strong>0.4986</strong>。如果不进行未知类别识别，准确率为 **0.4838%**。</p>
+<p>在 20ns 上，准确率为 <strong>0.4921</strong>，f1_score 为 <strong>0.4986</strong>。如果不进行未知类别识别，准确率为 <strong>0.4838</strong>。</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\mat1_unk.png) -->
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/mat1_unk.png" class="" title="这是一张图片">
 
