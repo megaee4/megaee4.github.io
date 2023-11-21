@@ -55,7 +55,8 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  
+  <!--live2d的设置-->
+  <!---->
   <div class="headband"></div>
 
   <main class="main">
@@ -127,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -148,7 +149,8 @@
 
         </div>
       </div>
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1942064163&auto=1&height=66"></iframe>
+      <!--网易云的设置-->
+      <!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1942064163&auto=1&height=66"></iframe>-->
     </div>
   </aside>
 
@@ -156,6 +158,211 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/13/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Megaee">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/11/13/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" class="post-title-link" itemprop="url">二叉树遍历</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-11-13 17:18:51 / Modified: 17:55:47" itemprop="dateCreated datePublished" datetime="2022-11-13T17:18:51+08:00">2022-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Structure-and-Algorithm/" itemprop="url" rel="index"><span itemprop="name">Data Structure and Algorithm</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    Node* lchild;</span><br><span class="line">    Node* rchild;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> Node* BiTree;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">preorder</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">visit</span>(T);</span><br><span class="line">    <span class="built_in">preorder</span>(T-&gt;lchild);</span><br><span class="line">    <span class="built_in">preorder</span>(T-&gt;rchild);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">preorder</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::stack&lt;BiTree&gt; st;</span><br><span class="line">    st.<span class="built_in">push</span>(T);</span><br><span class="line">    BiTree p;</span><br><span class="line">    <span class="keyword">while</span>(!st.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        p = st.<span class="built_in">top</span>();</span><br><span class="line">        st.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="built_in">visit</span>(p);</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;rchild != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            st.<span class="built_in">push</span>(p-&gt;rchild);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;lchild != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            st.<span class="built_in">push</span>(p-&gt;rchild);</span><br><span class="line">        &#125;<span class="comment">//先进右再进左</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">inorder</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">inorder</span>(T-&gt;lchild);</span><br><span class="line">    <span class="built_in">visit</span>(T);</span><br><span class="line">    <span class="built_in">inorder</span>(T-&gt;rchild);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">inorder</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::tack&lt;BiTree&gt; st;</span><br><span class="line">    BiTree p = T;</span><br><span class="line">    <span class="keyword">while</span>(p != <span class="literal">NULL</span> || !st.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="keyword">while</span>(p != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            st.<span class="built_in">push</span>(p);</span><br><span class="line">            p = p-&gt;lchild;</span><br><span class="line">        &#125;<span class="comment">//一直向左</span></span><br><span class="line">        p = st.<span class="built_in">top</span>();</span><br><span class="line">        st.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="built_in">visit</span>(p);</span><br><span class="line">        p = p-&gt;rchild;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">postorder</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">postorder</span>(p-&gt;lchild);</span><br><span class="line">    <span class="built_in">postorder</span>(p-&gt;rchild);</span><br><span class="line">    <span class="built_in">visit</span>(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">postorder</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::stack&lt;BiTree&gt; st;</span><br><span class="line">    BiTree p = T, r = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(p != <span class="literal">NULL</span> || !st.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="keyword">while</span>(p != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            st.<span class="built_in">push</span>(p);</span><br><span class="line">            p = p-&gt;lchild;</span><br><span class="line">        &#125;</span><br><span class="line">        p = st.<span class="built_in">top</span>();</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;rchild == <span class="literal">NULL</span> || r == p-&gt;rchild)&#123;</span><br><span class="line">            st.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="built_in">visit</span>(p);</span><br><span class="line">            r = p;</span><br><span class="line">            p = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            p = p-&gt;rchild;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">levelorder</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    queue&lt;BiTree&gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>(T);</span><br><span class="line">    BiTree p;</span><br><span class="line">    <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        p = q.<span class="built_in">front</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="built_in">visit</span>(p);</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;lchild != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            q.<span class="built_in">push</span>(p-&gt;lchild);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;rchild != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            q.<span class="built_in">push</span>(q-&gt;rchild);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="根据先序和中序构建二叉树"><a href="#根据先序和中序构建二叉树" class="headerlink" title="根据先序和中序构建二叉树"></a>根据先序和中序构建二叉树</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">construct</span><span class="params">(Node* root, <span class="type">int</span>* pre, <span class="type">int</span>* mid, <span class="type">int</span> l1, <span class="type">int</span> r1, <span class="type">int</span> l2, <span class="type">int</span> r2)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l1 &gt; r1)<span class="keyword">return</span>;</span><br><span class="line">	root-&gt;data = pre[l1];</span><br><span class="line">	<span class="type">int</span> pos = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=l2;i&lt;=r2;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(pre[l1] == mid[i])&#123;</span><br><span class="line">			pos = i;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="comment">// 找到根结点在中序序列中的位置</span></span><br><span class="line">	<span class="keyword">if</span>(pos&gt;l2)&#123;<span class="comment">// 构造左子树</span></span><br><span class="line">		root-&gt;left = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">		<span class="built_in">construct</span>(root-&gt;left, pre, mid, l1 + <span class="number">1</span>, l1 + pos - l2, l2, pos - <span class="number">1</span> );</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(pos&lt;r2)&#123;<span class="comment">// 构造右子树</span></span><br><span class="line">		root-&gt;right = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">		<span class="built_in">construct</span>(root-&gt;right, pre, mid, l1 - l2 + pos + <span class="number">1</span>, r1, pos + <span class="number">1</span>, r2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/11/ML-chapter1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Megaee">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/11/11/ML-chapter1/" class="post-title-link" itemprop="url">ML chapter1</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-11-11 11:40:35" itemprop="dateCreated datePublished" datetime="2022-11-11T11:40:35+08:00">2022-11-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-07-11 10:09:46" itemprop="dateModified" datetime="2023-07-11T10:09:46+08:00">2023-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">Artificial Intelligence</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Polynomial-Curve-Fitting"><a href="#Polynomial-Curve-Fitting" class="headerlink" title="Polynomial Curve Fitting"></a><strong>Polynomial Curve Fitting</strong></h2><p>$$<br>y(x,\vec w) = w_0 + w_1x + w_2x^2+\cdots+w_Mx_M = \displaystyle\sum_{j=0}^{M}w_jx^j<br>$$<br>minimize an <em>error function</em> that measures the misfit between the function  $y$.</p>
+<p>One simple choice of error function, which is widely used, is given by the sum of the squares of the errors between the predictions $y(x_n, \vec w)$ for each data point $x_n$ and the corresponding target values $t_n$  :<br>$$<br>E(\vec w) = \dfrac{1}{2}\displaystyle\sum_{n=1}^{N}[y(x,\vec w)-t_n]^2<br>$$</p>
+<p>find $\vec w^\star$ such that $E(\vec w)$ is as small as possible.</p>
+<p>choose $M$ : <em>model comparison or model selection</em> </p>
+<p>overfitting:</p>
+<img src="/2022/11/11/ML-chapter1/1.png" class="" title="这是一张图片">
+
+<p>RMS:<br>$$<br>E_{RMS} = \sqrt{2E(\vec w^\star)/N}<br>$$<br>By adopting a <strong>Bayesian approach</strong>, the over-fitting problem can be avoided.  </p>
+<p>Indeed, in a Bayesian model the effective number of parameters adapts automatically to the size of the data set.  </p>
+<p><strong>regularization</strong><br>$$<br>\tilde{E}(\vec w)= \dfrac{1}{2}\displaystyle\sum_{n=1}^{N}[y(x,\vec w)-t_n]^2 + \dfrac{\lambda}{2}\lVert\vec w\rVert^2<br>$$<br>the coefficient $\lambda$ governs the relative importance of the regularization term compared with the sum-of-squares error term.  </p>
+<p>Also known as ridge regression.</p>
+<h2 id="Bayesian-Probabilities"><a href="#Bayesian-Probabilities" class="headerlink" title="Bayesian Probabilities"></a><strong>Bayesian Probabilities</strong></h2><p>$$<br>p(\mathbf {w}|\mathcal{D})=\dfrac{p(\mathcal{D}|\mathbf w)p(\mathbf w)}{p(\mathcal D)}<br>$$</p>
+<p>$$<br>p(\mathcal D) = \int p(\mathcal{D}|\mathbf w)p(\mathbf w)\mathrm d \mathbf w<br>$$</p>
+<p>$$<br>\text{posterprior}\varpropto \text{likelihood}\times \text{prior}<br>$$<br><strong>Maximum Likelihood</strong> : choose $\mathbf w$ to maximize $p(\mathcal D|\mathbf w)$, <em>error function</em> with negative log.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -313,7 +520,8 @@
 
     </div>
   </footer>
-  <script src="/live2d-widget-master/live2d-widget-master/autoload.js"></script>
+  <!--live2d的设置-->
+  <!--<script src="/live2d-widget-master/live2d-widget-master/autoload.js"></script>-->
   
   
   <div class="back-to-top" role="button" aria-label="Back to top">

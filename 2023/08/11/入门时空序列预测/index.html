@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/180.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="时间序列预测时间序列预测是指使用过去的时间序列数据来预测未来的数据点。 时间序列分析的核心就是挖掘该时间序列中的自相关性。 时空序列预测时空序列包含了时间与空间上的信息。我们在这里使用的雷达数据就是典型的时空序列。 RNN循环神经网络(RNN)是一种简单的用于时间序列预测的神经网络模型。RNN的特点是其神经元之间存在循环连接，神经元接受输入数据以及上一个时间的隐藏状态。$$h_t &#x3D; \sigma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="入门时空序列预测">
+<meta property="og:url" content="http://example.com/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/index.html">
+<meta property="og:site_name" content="Megaee的小屋">
+<meta property="og:description" content="时间序列预测时间序列预测是指使用过去的时间序列数据来预测未来的数据点。 时间序列分析的核心就是挖掘该时间序列中的自相关性。 时空序列预测时空序列包含了时间与空间上的信息。我们在这里使用的雷达数据就是典型的时空序列。 RNN循环神经网络(RNN)是一种简单的用于时间序列预测的神经网络模型。RNN的特点是其神经元之间存在循环连接，神经元接受输入数据以及上一个时间的隐藏状态。$$h_t &#x3D; \sigma">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/1.png">
+<meta property="og:image" content="http://example.com/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/2.png">
+<meta property="og:image" content="http://example.com/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/3.png">
+<meta property="article:published_time" content="2023-08-11T01:28:09.000Z">
+<meta property="article:modified_time" content="2023-11-21T15:00:22.965Z">
+<meta property="article:author" content="Megaee">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/1.png">
+
+
+<link rel="canonical" href="http://example.com/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/","path":"2023/08/11/入门时空序列预测/","title":"入门时空序列预测"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>入门时空序列预测 | Megaee的小屋</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!--live2d的设置-->
+  <!---->
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Megaee的小屋</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">我，再生产！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B"><span class="nav-number">1.</span> <span class="nav-text">时间序列预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B"><span class="nav-number">2.</span> <span class="nav-text">时空序列预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RNN"><span class="nav-number">3.</span> <span class="nav-text">RNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8"><span class="nav-number">4.</span> <span class="nav-text">梯度消失与梯度爆炸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSTM"><span class="nav-number">5.</span> <span class="nav-text">LSTM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E7%A7%8D%E2%80%94%E2%80%94%E5%A2%9E%E5%8A%A0peephole"><span class="nav-number">5.1.</span> <span class="nav-text">变种——增加peephole</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConvLSTM"><span class="nav-number">6.</span> <span class="nav-text">ConvLSTM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Encoding-Forecasting-Structure"><span class="nav-number">7.</span> <span class="nav-text">Encoding Forecasting Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">8.</span> <span class="nav-text">数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-number">8.1.</span> <span class="nav-text">归一化</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Megaee"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Megaee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/megaee4" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;megaee4" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--网易云的设置-->
+      <!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1942064163&auto=1&height=66"></iframe>-->
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Megaee">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="入门时空序列预测 | Megaee的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          入门时空序列预测
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-11 09:28:09" itemprop="dateCreated datePublished" datetime="2023-08-11T09:28:09+08:00">2023-08-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-21 23:00:22" itemprop="dateModified" datetime="2023-11-21T23:00:22+08:00">2023-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">Artificial Intelligence</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="时间序列预测"><a href="#时间序列预测" class="headerlink" title="时间序列预测"></a>时间序列预测</h2><p>时间序列预测是指使用过去的时间序列数据来预测未来的数据点。</p>
+<p><strong>时间序列分析的核心就是挖掘该时间序列中的自相关性</strong>。</p>
+<h2 id="时空序列预测"><a href="#时空序列预测" class="headerlink" title="时空序列预测"></a>时空序列预测</h2><p>时空序列包含了时间与空间上的信息。我们在这里使用的雷达数据就是典型的时空序列。</p>
+<h2 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h2><p>循环神经网络(RNN)是一种简单的用于时间序列预测的神经网络模型。RNN的特点是其神经元之间存在循环连接，神经元接受输入数据以及上一个时间的隐藏状态。<br>$$<br>h_t = \sigma(W_{hh} \cdot h_{t-1} + W_{hx} \cdot x_t + b_h)<br>y_t = W_{hy} \cdot h_t + b_y<br>$$</p>
+<h2 id="梯度消失与梯度爆炸"><a href="#梯度消失与梯度爆炸" class="headerlink" title="梯度消失与梯度爆炸"></a>梯度消失与梯度爆炸</h2><p>在反向传播时，可能会经过多层的权重更新，导致梯度逐渐变小，最终趋近于零，这就是梯度消失。这种现象在 RNN 上尤其常见，因为存在循环连接时，很小的梯度会不断相乘。同样，如果梯度逐渐变大，这就是梯度爆炸。</p>
+<p>梯度消失会导致网络的前期层几乎不更新参数，难以收敛，梯度爆炸会导致权重更新过快，破坏网络的稳定性。为了解决 RNN 中的这些问题，出现了一些改进的模型，如 LSTM。</p>
+<h2 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h2><img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/1.png" class="" title="这是一张图片">
+
+<p>长短期记忆(LSTM)神经网络是一种特殊的 RNN。传统的 RNN 在捕捉长期依赖关系时通常表现不佳，容易出现梯度消失与梯度爆炸问题。</p>
+<p>LSTM 的核心思想是引入了门控机制，允许网络选择性地更新和忽略隐藏状态中的信息，从而更好地控制信息的流动。一个标准的 LSTM 单元包括三个门控和一个记忆单元：</p>
+<ol>
+<li><p><strong>遗忘门</strong>：$f_t=\sigma(W_{f}\cdot[h_{t-1},x_t]+b_f)$</p>
+<p>遗忘门的作用是决定在当前时间步是否要从记忆单元中移除信息。它通过一个 sigmoid 函数来生成一个介于 0 和 1 之间的值，来控制记忆单元中的信息保留程度。</p>
+</li>
+<li><p><strong>输入门</strong>：$i_t=\sigma(W_{i}\cdot[h_{t-1},x_t]+b_i)$</p>
+<p>$\hat{c_t}=\tanh(W_c\cdot[h_{t-1},x_t]+b_c)$</p>
+<p>输入门决定在当前时间步要从输入数据中添加多少信息到记忆单元中。它包括一个 sigmoid 层和一个 tanh 层，用于确定更新的记忆内容。</p>
+</li>
+<li><p><strong>更新门</strong>：$c_t=f_t\circ c_{t-1}+i_t\circ \hat{c_t}$</p>
+<p>更新门根据遗忘门和输出门的控制，计算得到更新的内容。</p>
+</li>
+<li><p><strong>输出门</strong>：$o_t=\sigma(W_o\cdot[h_{t-1},x_t]+b_o)$</p>
+<p>$h_t=o_t\circ\tanh(c_t)$</p>
+<p>输出门决定在当前时间步要从记忆单元中提取多少信息作为输出。它通过一个 sigmoid 层和记忆单元的内容来生成一个输出。</p>
+</li>
+</ol>
+<h3 id="变种——增加peephole"><a href="#变种——增加peephole" class="headerlink" title="变种——增加peephole"></a>变种——增加peephole</h3><p>为了进一步增强 LSTM 的建模能力，我们允许门控使用记忆单元中的内容作为输入：<br>$$<br>\begin{aligned}<br>f_t&amp;=\sigma(W_{f}\cdot[h_{t-1},x_t,c_{t-1}]+b_f)\\<br>i_t&amp;=\sigma(W_{i}\cdot[h_{t-1},x_t,c_{t-1}]+b_i)\\<br>\hat{c_t}&amp;=\tanh(W_c\cdot[h_{t-1},x_t,c_{t-1}]+b_c)\\<br>c_t&amp;=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\<br>o_t&amp;=\sigma(W_{o}\cdot[h_{t-1},x_t,c_{t-1}]+b_o)\\<br>h_t&amp;=o_t\circ\tanh(c_t)<br>\end{aligned}<br>$$</p>
+<img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/2.png" class="" title="这是一张图片">
+
+
+
+<h2 id="ConvLSTM"><a href="#ConvLSTM" class="headerlink" title="ConvLSTM"></a>ConvLSTM</h2><p>ConvLSTM 将矩阵相乘的操作更换为卷积。通过卷积操作，实现了对时空信息的特征提取。<br>$$<br>\begin{aligned}<br>f_t&amp;=\sigma(W_{f}<em>[h_{t-1},x_t,c_{t-1}]+b_f)\\<br>i_t&amp;=\sigma(W_{i}</em>[h_{t-1},x_t,c_{t-1}]+b_i)\\<br>\hat{c_t}&amp;=\tanh(W_c*[h_{t-1},x_t,c_{t-1}]+b_c)\\<br>c_t&amp;=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\<br>o_t&amp;=\sigma(W_{o}*[h_{t-1},x_t,c_{t-1}]+b_o)\\<br>h_t&amp;=o_t\circ\tanh(c_t)<br>\end{aligned}<br>$$</p>
+<h2 id="Encoding-Forecasting-Structure"><a href="#Encoding-Forecasting-Structure" class="headerlink" title="Encoding Forecasting Structure"></a>Encoding Forecasting Structure</h2><img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/3.png" class="" title="这是一张图片">
+
+
+
+
+
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>我们使用的数据是20230530的雷达数据，存储格式为。通过雷达回波数据，我们可以利用 Z-R 关系估计降水量：<br>$$<br>Z=aR^b<br>$$<br>其中 $Z$ 为回波强度，$R$ 为降水量。</p>
+<p>此处的雷达数据中存放的回波强度单位为 dBZ，这意味着<br>$$<br>dBZ=10\lg a + 10b\lg R<br>$$<br>其范围大致在 $[-20,70]$。</p>
+<p>另外，雷达存储的 dBZ 数据并不是严格的三维网格数据。我们通过插值的方法，将其转化为分辨率 2km 的三位网格数据，随后垂直方向取第一个通道的二维数据作为原始数据。</p>
+<h3 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h3><p>输入的雷达数据中有较多的缺测值，我们统一用 -20 替换。</p>
+<p>由于所构建的模型的输出范围是$[0,1]$，我们对所有的 dBZ 都进行了如下操作：<br>$$<br>P=\dfrac{dBZ+10}{70}\<br>input=\begin{cases}<br>0,P&lt;0\<br>1,P&gt;1\<br>P,else<br>\end{cases}<br>$$<br>这样我们的输入被映射到 $[0,1]$ 上，同时筛除了部分异常点。</p>
+<p>未完。。。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/" rel="prev" title="弱监督文本分类">
+                  <i class="fa fa-chevron-left"></i> 弱监督文本分类
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/11/21/Josephus-Problem/" rel="next" title="Josephus Problem">
+                  Josephus Problem <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Megaee</span>
+</div>
+
+    </div>
+  </footer>
+  <!--live2d的设置-->
+  <!--<script src="/live2d-widget-master/live2d-widget-master/autoload.js"></script>-->
+  
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
