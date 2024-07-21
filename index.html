@@ -457,7 +457,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-07-21 21:31:54" itemprop="dateModified" datetime="2024-07-21T21:31:54+08:00">2024-07-21</time>
+      <time title="Modified: 2024-07-21 21:43:21" itemprop="dateModified" datetime="2024-07-21T21:43:21+08:00">2024-07-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -510,26 +510,18 @@
 
 
 
-<h2 id="ConvLSTM"><a href="#ConvLSTM" class="headerlink" title="ConvLSTM"></a>ConvLSTM</h2><p>ConvLSTM 将矩阵相乘的操作更换为卷积。通过卷积操作，实现了对时空信息的特征提取。<br>$$</p>
-<p>\begin{align}<br>f_t&amp;=\sigma(W_{f}<em>[h_{t-1},x_t,c_{t-1}]+b_f)\\<br>i_t&amp;=\sigma(W_{i}</em>[h_{t-1},x_t,c_{t-1}]+b_i)\\<br>\hat{c_t}&amp;=\tanh(W_c*[h_{t-1},x_t,c_{t-1}]+b_c)\\<br>c_t&amp;=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\<br>o_t&amp;=\sigma(W_{o}*[h_{t-1},x_t,c_{t-1}]+b_o)\\<br>h_t&amp;=o_t\circ\tanh(c_t)<br>\end{align}</p>
-<p>$$</p>
+<h2 id="ConvLSTM"><a href="#ConvLSTM" class="headerlink" title="ConvLSTM"></a>ConvLSTM</h2><p>ConvLSTM 将矩阵相乘的操作更换为卷积。通过卷积操作，实现了对时空信息的特征提取。<br>$$<br>\begin{align}<br>f_t&amp;=\sigma(W_{f}<em>[h_{t-1},x_t,c_{t-1}]+b_f)\\<br>i_t&amp;=\sigma(W_{i}</em>[h_{t-1},x_t,c_{t-1}]+b_i)\\<br>\hat{c_t}&amp;=\tanh(W_c*[h_{t-1},x_t,c_{t-1}]+b_c)\\<br>c_t&amp;=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\<br>o_t&amp;=\sigma(W_{o}*[h_{t-1},x_t,c_{t-1}]+b_o)\\<br>h_t&amp;=o_t\circ\tanh(c_t)<br>\end{align}<br>$$</p>
 <h2 id="Encoding-Forecasting-Structure"><a href="#Encoding-Forecasting-Structure" class="headerlink" title="Encoding Forecasting Structure"></a>Encoding Forecasting Structure</h2><img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/3.png" class="" title="这是一张图片">
 
 
 
 
 
-<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>我们使用的数据是20230530的雷达数据，存储格式为。通过雷达回波数据，我们可以利用 Z-R 关系估计降水量：<br>$$</p>
-<p>Z=aR^b</p>
-<p>$$<br>其中 $Z$ 为回波强度，$R$ 为降水量。</p>
-<p>此处的雷达数据中存放的回波强度单位为 dBZ，这意味着<br>$$</p>
-<p>dBZ=10\lg a + 10b\lg R</p>
-<p>$$<br>其范围大致在 $[-20,70]$。</p>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>我们使用的数据是20230530的雷达数据，存储格式为。通过雷达回波数据，我们可以利用 Z-R 关系估计降水量：<br>$$<br>Z=aR^b<br>$$<br>其中 $Z$ 为回波强度，$R$ 为降水量。</p>
+<p>此处的雷达数据中存放的回波强度单位为 dBZ，这意味着<br>$$<br>dBZ=10\lg a + 10b\lg R<br>$$<br>其范围大致在 $[-20,70]$。</p>
 <p>另外，雷达存储的 dBZ 数据并不是严格的三维网格数据。我们通过插值的方法，将其转化为分辨率 2km 的三位网格数据，随后垂直方向取第一个通道的二维数据作为原始数据。</p>
 <h3 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h3><p>输入的雷达数据中有较多的缺测值，我们统一用 -20 替换。</p>
-<p>由于所构建的模型的输出范围是$[0,1]$，我们对所有的 dBZ 都进行了如下操作：<br>$$</p>
-<p>P=\dfrac{dBZ+10}{70}\<br>input=\begin{cases}<br>0,P&lt;0\<br>1,P&gt;1\<br>P,else<br>\end{cases}</p>
-<p>$$<br>这样我们的输入被映射到 $[0,1]$ 上，同时筛除了部分异常点。</p>
+<p>由于所构建的模型的输出范围是$[0,1]$，我们对所有的 dBZ 都进行了如下操作：<br>$$<br>P=\dfrac{dBZ+10}{70}\\<br>input=\begin{cases}<br>0,P&lt;0\\<br>1,P&gt;1\\<br>P,else<br>\end{cases}<br>$$<br>这样我们的输入被映射到 $[0,1]$ 上，同时筛除了部分异常点。</p>
 
       
     </div>
