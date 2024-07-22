@@ -457,7 +457,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-07-21 21:43:21" itemprop="dateModified" datetime="2024-07-21T21:43:21+08:00">2024-07-21</time>
+      <time title="Modified: 2024-07-22 22:00:03" itemprop="dateModified" datetime="2024-07-22T22:00:03+08:00">2024-07-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -510,7 +510,7 @@
 
 
 
-<h2 id="ConvLSTM"><a href="#ConvLSTM" class="headerlink" title="ConvLSTM"></a>ConvLSTM</h2><p>ConvLSTM 将矩阵相乘的操作更换为卷积。通过卷积操作，实现了对时空信息的特征提取。<br>$$<br>\begin{align}<br>f_t&amp;=\sigma(W_{f}<em>[h_{t-1},x_t,c_{t-1}]+b_f)\\<br>i_t&amp;=\sigma(W_{i}</em>[h_{t-1},x_t,c_{t-1}]+b_i)\\<br>\hat{c_t}&amp;=\tanh(W_c*[h_{t-1},x_t,c_{t-1}]+b_c)\\<br>c_t&amp;=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\<br>o_t&amp;=\sigma(W_{o}*[h_{t-1},x_t,c_{t-1}]+b_o)\\<br>h_t&amp;=o_t\circ\tanh(c_t)<br>\end{align}<br>$$</p>
+<h2 id="ConvLSTM"><a href="#ConvLSTM" class="headerlink" title="ConvLSTM"></a>ConvLSTM</h2><p>ConvLSTM 将矩阵相乘的操作更换为卷积。通过卷积操作，实现了对时空信息的特征提取。<br>$$<br>\begin{align}<br>f_t&amp;=\sigma(W_{f}\ast[h_{t-1},x_t,c_{t-1}]+b_f)\\<br>i_t&amp;=\sigma(W_{i}\ast[h_{t-1},x_t,c_{t-1}]+b_i)\\<br>\hat{c_t}&amp;=\tanh(W_c\ast[h_{t-1},x_t,c_{t-1}]+b_c)\\<br>c_t&amp;=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\<br>o_t&amp;=\sigma(W_{o}\ast[h_{t-1},x_t,c_{t-1}]+b_o)\\<br>h_t&amp;=o_t\circ\tanh(c_t)<br>\end{align}<br>$$</p>
 <h2 id="Encoding-Forecasting-Structure"><a href="#Encoding-Forecasting-Structure" class="headerlink" title="Encoding Forecasting Structure"></a>Encoding Forecasting Structure</h2><img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/3.png" class="" title="这是一张图片">
 
 
