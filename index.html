@@ -255,7 +255,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/22/Linear-Regression/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/10/%E7%AD%89%E5%8F%98%E6%80%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -273,7 +273,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/22/Linear-Regression/" class="post-title-link" itemprop="url">Linear Regression</a>
+          <a href="/2024/12/10/%E7%AD%89%E5%8F%98%E6%80%A7/" class="post-title-link" itemprop="url">等变性</a>
         </h2>
 
         <div class="post-meta-container">
@@ -285,7 +285,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-07-22 22:03:38 / Modified: 22:08:40" itemprop="dateCreated datePublished" datetime="2024-07-22T22:03:38+08:00">2024-07-22</time>
+      <time title="Created: 2024-12-10 21:53:01 / Modified: 23:01:44" itemprop="dateCreated datePublished" datetime="2024-12-10T21:53:01+08:00">2024-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -307,8 +307,62 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h1><p>$$<br>y(\mathbf x, \mathbf w)= \mathbf w^{\mathrm T}\mathbf\phi(\mathbf x)<br>$$</p>
-<p>where $\mathbf\phi(\mathbf x)$ are known as basis functions.</p>
+          <h2 id="什么是等变性"><a href="#什么是等变性" class="headerlink" title="什么是等变性"></a>什么是等变性</h2><p>设 $T_g:X\to X$ 是 $g\in G$ 上的 transformation，$\phi:X\to Y$ 是一个函数，若存在 $S_g:Y\to Y$ 使得<br>$$<br>\phi(T_g(x))=S_g(\phi(x))<br>$$<br> 则称 $\phi$ 对于 $g$ 等变。</p>
+<p>若<br>$$<br>\phi(T_g(x))=\phi(x)<br>$$<br>则 $\phi$ 对于 $g$ 不变。</p>
+<h2 id="为什么要有等变性"><a href="#为什么要有等变性" class="headerlink" title="为什么要有等变性"></a>为什么要有等变性</h2><p>思考分子有关的问题时，我们通常将原子建模成图的节点，化学键建模为图的边。考虑几个简单的分子性质，如势能和原子受力。</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">势能</th>
+<th align="center">受力</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">平移</td>
+<td align="center">不变</td>
+<td align="center">不变</td>
+</tr>
+<tr>
+<td align="center">旋转</td>
+<td align="center">不变</td>
+<td align="center">改变</td>
+</tr>
+<tr>
+<td align="center">置换</td>
+<td align="center">不变</td>
+<td align="center">改变</td>
+</tr>
+<tr>
+<td align="center">镜面对称/手性</td>
+<td align="center">不变</td>
+<td align="center">改变</td>
+</tr>
+</tbody></table>
+<p>主要考虑以下四种不变/等变性：</p>
+<ul>
+<li>置换(permutation)不变/等变性。实现这个是比较简单的，保证模型不依赖输入的顺序即可。</li>
+<li>平移不变性。只要模型不依赖于原子的绝对坐标就可以。</li>
+<li>手性似乎影响不大，研究较少。</li>
+<li>旋转不变/等变性。实际上容易出问题的就是这一部分。</li>
+</ul>
+<h2 id="一些群的名字"><a href="#一些群的名字" class="headerlink" title="一些群的名字"></a>一些群的名字</h2><ul>
+<li>我们知道旋转矩阵是正交的，其行列式一定为 1。</li>
+<li>$O(n)$ 表示 n 阶正交矩阵群(othorgonal)，那么其行列式为 1 的表示旋转矩阵，-1 的表示旋转+对称。</li>
+<li>$SO(n)$ 是 $O(n)$ 的子群，S = special，表示全体旋转矩阵。</li>
+<li>$E(n)$ 表示 $O(n)$ 中的所有元素再加上平移变换(Euclidean)，也就是旋转+平移+对称。</li>
+<li>$SE(n)$ 表示任意旋转+平移。</li>
+</ul>
+<h2 id="如何保证等变性"><a href="#如何保证等变性" class="headerlink" title="如何保证等变性"></a>如何保证等变性</h2><p>首先可以保证所有的操作是线性的，并且是很严格的线性，即计算 $\mathbf{y}=a\mathbf{x}+b$ 时，$a$ 和 $b$ 都必须是标量。</p>
+<p>另外可以引入内积，范数等进行标量化。<br>$$<br>R\mathbf{a}\cdot R\mathbf{b}=\mathbf{a}\cdot \mathbf{b}\\<br>$$</p>
+<h2 id="EGNN"><a href="#EGNN" class="headerlink" title="EGNN"></a>EGNN</h2><p>传统 GNN 的工作流程可以分为三步：</p>
+<ol>
+<li>消息传递，通过两点距离 $a_{ij}$ 和两点的 feature/隐变量，套一个神经网络；</li>
+<li>聚合，通常是将邻居的消息相加；</li>
+<li>迭代获得新的隐变量。</li>
+</ol>
+<p>$$<br>\text{Edge: }\mathbf{m}_{ij}=\phi_e(\mathbf{h}<em>i^{l},\mathbf{h}<em>j^{l},a</em>{ij})\\<br>\text{Agg: }\mathbf{m}<em>i=\sum</em>{j\in\mathcal{N}(i)}m</em>{ij}\\<br>\text{Node: }\mathbf{h}_i^{l+1}=\phi_h(\mathbf{h}_i^l,\mathbf m_i)<br>$$</p>
+<p>这种模型只引入节点的标量距离，导致模型并不具有旋转等变性。直接把坐标加到消息传递的每一步就可以解决。<br>$$<br>\text{Edge: }\mathbf{m}_{ij}=\phi_e(\mathbf{h}_i^{l},\mathbf{h}_j^{l},\lVert \mathbf{x}<em>i^l-\mathbf{x}<em>j^l\rVert_2^2,a</em>{ij})\\<br>\text{Agg: }\mathbf{m}<em>i=\sum</em>{j\neq i}\mathbf{m}</em>{ij}\\<br>\text{Node: }\mathbf{h}_i^{l+1}=\phi_h(\mathbf{h}_i^l,\mathbf m_i),\ \mathbf{x}<em>i^{l+1}=\mathbf{x}<em>i^l+C\sum</em>{j\neq i}\phi_x(\mathbf{m}</em>{ij})<br>$$<br>需要注意的是，这样得到的隐变量 $\mathbf{h}_l$ 是不变的。</p>
 
       
     </div>
