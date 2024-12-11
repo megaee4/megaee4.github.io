@@ -228,7 +228,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Megaee的摸鱼日记"><a href="#Megaee的摸鱼日记" class="headerlink" title="Megaee的摸鱼日记"></a>Megaee的摸鱼日记</h1><img src="/1111/11/11/Megaee%E7%9A%84%E6%91%B8%E9%B1%BC%E6%97%A5%E8%AE%B0/shizuku.JPG" class="" title="这是一张图片">
+          <h1 id="megaee的摸鱼日记">Megaee的摸鱼日记</h1>
+<img src="/1111/11/11/Megaee%E7%9A%84%E6%91%B8%E9%B1%BC%E6%97%A5%E8%AE%B0/shizuku.JPG" class="" title="这是一张图片">
 
       
     </div>
@@ -313,46 +314,52 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="什么是等变性"><a href="#什么是等变性" class="headerlink" title="什么是等变性"></a>什么是等变性</h2><p>设 $T_g:X\to X$ 是 $g\in G$ 上的 transformation，$\phi:X\to Y$ 是一个函数，若存在 $S_g:Y\to Y$ 使得</p>
-<script type="math/tex; mode=display">
-\phi(T_g(x))=S_g(\phi(x))</script><p> 则称 $\phi$ 对于 $g$ 等变。</p>
-<p>若</p>
-<script type="math/tex; mode=display">
-\phi(T_g(x))=\phi(x)</script><p>则 $\phi$ 对于 $g$ 不变。</p>
-<h2 id="为什么要有等变性"><a href="#为什么要有等变性" class="headerlink" title="为什么要有等变性"></a>为什么要有等变性</h2><p>思考分子有关的问题时，我们通常将原子建模成图的节点，化学键建模为图的边。考虑几个简单的分子性质，如势能和原子受力。</p>
-<div class="table-container">
+          <h2 id="什么是等变性">什么是等变性</h2>
+<p>设 <span class="math inline">\(T_g:X\to X\)</span> 是 <span
+class="math inline">\(g\in G\)</span> 上的 transformation，<span
+class="math inline">\(\phi:X\to Y\)</span> 是一个函数，若存在 <span
+class="math inline">\(S_g:Y\to Y\)</span> 使得 <span
+class="math display">\[
+\phi(T_g(x))=S_g(\phi(x))
+\]</span> 则称 <span class="math inline">\(\phi\)</span> 对于 <span
+class="math inline">\(g\)</span> 等变。</p>
+<p>若 <span class="math display">\[
+\phi(T_g(x))=\phi(x)
+\]</span> 则 <span class="math inline">\(\phi\)</span> 对于 <span
+class="math inline">\(g\)</span> 不变。</p>
+<h2 id="为什么要有等变性">为什么要有等变性</h2>
+<p>思考分子有关的问题时，我们通常将原子建模成图的节点，化学键建模为图的边。考虑几个简单的分子性质，如势能和原子受力。</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">势能</th>
-<th style="text-align:center">受力</th>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">势能</th>
+<th style="text-align: center;">受力</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">平移</td>
-<td style="text-align:center">不变</td>
-<td style="text-align:center">不变</td>
+<tr class="odd">
+<td style="text-align: center;">平移</td>
+<td style="text-align: center;">不变</td>
+<td style="text-align: center;">不变</td>
 </tr>
-<tr>
-<td style="text-align:center">旋转</td>
-<td style="text-align:center">不变</td>
-<td style="text-align:center">改变</td>
+<tr class="even">
+<td style="text-align: center;">旋转</td>
+<td style="text-align: center;">不变</td>
+<td style="text-align: center;">改变</td>
 </tr>
-<tr>
-<td style="text-align:center">置换</td>
-<td style="text-align:center">不变</td>
-<td style="text-align:center">改变</td>
+<tr class="odd">
+<td style="text-align: center;">置换</td>
+<td style="text-align: center;">不变</td>
+<td style="text-align: center;">改变</td>
 </tr>
-<tr>
-<td style="text-align:center">镜面对称/手性</td>
-<td style="text-align:center">不变</td>
-<td style="text-align:center">改变</td>
+<tr class="even">
+<td style="text-align: center;">镜面对称/手性</td>
+<td style="text-align: center;">不变</td>
+<td style="text-align: center;">改变</td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>主要考虑以下四种不变/等变性：</p>
 <ul>
 <li>置换(permutation)不变/等变性。实现这个是比较简单的，保证模型不依赖输入的顺序即可。</li>
@@ -360,30 +367,58 @@
 <li>手性似乎影响不大，研究较少。</li>
 <li>旋转不变/等变性。实际上容易出问题的就是这一部分。</li>
 </ul>
-<h2 id="一些群的名字"><a href="#一些群的名字" class="headerlink" title="一些群的名字"></a>一些群的名字</h2><ul>
+<h2 id="一些群的名字">一些群的名字</h2>
+<ul>
 <li>我们知道旋转矩阵是正交的，其行列式一定为 1。</li>
-<li>$O(n)$ 表示 n 阶正交矩阵群(othorgonal)，那么其行列式为 1 的表示旋转矩阵，-1 的表示旋转+对称。</li>
-<li>$SO(n)$ 是 $O(n)$ 的子群，S = special，表示全体旋转矩阵。</li>
-<li>$E(n)$ 表示 $O(n)$ 中的所有元素再加上平移变换(Euclidean)，也就是旋转+平移+对称。</li>
-<li>$SE(n)$ 表示任意旋转+平移。</li>
+<li><span class="math inline">\(O(n)\)</span> 表示 n
+阶正交矩阵群(othorgonal)，那么其行列式为 1 的表示旋转矩阵，-1
+的表示旋转+对称。</li>
+<li><span class="math inline">\(SO(n)\)</span> 是 <span
+class="math inline">\(O(n)\)</span> 的子群，S =
+special，表示全体旋转矩阵。</li>
+<li><span class="math inline">\(E(n)\)</span> 表示 <span
+class="math inline">\(O(n)\)</span>
+中的所有元素再加上平移变换(Euclidean)，也就是旋转+平移+对称。</li>
+<li><span class="math inline">\(SE(n)\)</span> 表示任意旋转+平移。</li>
 </ul>
-<h2 id="如何保证等变性"><a href="#如何保证等变性" class="headerlink" title="如何保证等变性"></a>如何保证等变性</h2><p>首先可以保证所有的操作是线性的，并且是很严格的线性，即计算 $\mathbf{y}=a\mathbf{x}+b$ 时，$a$ 和 $b$ 都必须是标量。</p>
-<p>另外可以引入内积，范数等进行标量化。</p>
-<script type="math/tex; mode=display">
-R\mathbf{a}\cdot R\mathbf{b}=\mathbf{a}\cdot \mathbf{b}\\\\</script><h2 id="EGNN"><a href="#EGNN" class="headerlink" title="EGNN"></a>EGNN</h2><p>传统 GNN 的工作流程可以分为三步：</p>
-<ol>
-<li>消息传递，通过两点距离 $a_{ij}$ 和两点的 feature/隐变量，套一个神经网络；</li>
+<h2 id="如何保证等变性">如何保证等变性</h2>
+<p>首先可以保证所有的操作是线性的，并且是很严格的线性，即计算 <span
+class="math inline">\(\mathbf{y}=a\mathbf{x}+b\)</span> 时，<span
+class="math inline">\(a\)</span> 和 <span
+class="math inline">\(b\)</span> 都必须是标量。</p>
+<p>另外可以引入内积，范数等进行标量化。 <span class="math display">\[
+R\mathbf{a}\cdot R\mathbf{b}=\mathbf{a}\cdot \mathbf{b}\\\\
+\]</span></p>
+<h2 id="egnn">EGNN</h2>
+<p>传统 GNN 的工作流程可以分为三步：</p>
+<ol type="1">
+<li>消息传递，通过两点距离 <span class="math inline">\(a_{ij}\)</span>
+和两点的 feature/隐变量，套一个神经网络；</li>
 <li>聚合，通常是将邻居的消息相加；</li>
 <li>迭代获得新的隐变量。</li>
 </ol>
-<script type="math/tex; mode=display">
-\mathbf{m}_{ij} = \phi_e(\mathbf{h}_i^l, \mathbf{h}_j^l, a_{ij})</script><script type="math/tex; mode=display">
-\mathbf{m}_{i} = \sum_{j \in \mathcal{N}(i)} m_{ij}</script><script type="math/tex; mode=display">
-\mathbf{h}_{i}^{l+1} = \phi_h(\mathbf{h}_i^l,\mathbf m_i)</script><p>这种模型只引入节点的标量距离，导致模型并不具有旋转等变性。直接把坐标加到消息传递的每一步就可以解决。</p>
-<script type="math/tex; mode=display">
-\mathbf{m}_{ij}=\phi_e(\mathbf{h}_{i}^{l},\mathbf{h}_j^{l},\lVert \mathbf{x}_i^l-\mathbf{x}_j^l\rVert_2^2,a_{ij})</script><script type="math/tex; mode=display">
-\mathbf{m}_i=\sum_{j\neq i}\mathbf{m}_{ij}</script><script type="math/tex; mode=display">
-\mathbf{h}_i^{l+1}=\phi_h(\mathbf{h}_i^l,\mathbf m_i),\ \mathbf{x}_i^{l+1}=\mathbf{x}_i^l+C\sum_{j\neq i}\phi_x(\mathbf{m}_{ij})</script><p>需要注意的是，这样得到的隐变量 $\mathbf{h}_l$ 是不变的。</p>
+<p><span class="math display">\[
+\mathbf{m}_{ij} = \phi_e(\mathbf{h}_i^l, \mathbf{h}_j^l, a_{ij})
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{m}_{i} = \sum_{j \in \mathcal{N}(i)} m_{ij}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{h}_{i}^{l+1} = \phi_h(\mathbf{h}_i^l,\mathbf m_i)
+\]</span></p>
+<p>这种模型只引入节点的标量距离，导致模型并不具有旋转等变性。直接把坐标加到消息传递的每一步就可以解决。
+<span class="math display">\[
+\mathbf{m}_{ij}=\phi_e(\mathbf{h}_{i}^{l},\mathbf{h}_j^{l},\lVert
+\mathbf{x}_i^l-\mathbf{x}_j^l\rVert_2^2,a_{ij})
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{m}_i=\sum_{j\neq i}\mathbf{m}_{ij}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{h}_i^{l+1}=\phi_h(\mathbf{h}_i^l,\mathbf m_i),\
+\mathbf{x}_i^{l+1}=\mathbf{x}_i^l+C\sum_{j\neq i}\phi_x(\mathbf{m}_{ij})
+\]</span> 需要注意的是，这样得到的隐变量 <span
+class="math inline">\(\mathbf{h}_l\)</span> 是不变的。</p>
 
       
     </div>
@@ -468,12 +503,16 @@ R\mathbf{a}\cdot R\mathbf{b}=\mathbf{a}\cdot \mathbf{b}\\\\</script><h2 id="EGNN
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="求只出现一次的数，其余数出现两次。"><a href="#求只出现一次的数，其余数出现两次。" class="headerlink" title="求只出现一次的数，其余数出现两次。"></a>求只出现一次的数，其余数出现两次。</h2><p>这个问题需要运用异或的性质。对于任意数 a，满足：</p>
-<script type="math/tex; mode=display">
+          <h2
+id="求只出现一次的数其余数出现两次">求只出现一次的数，其余数出现两次。</h2>
+<p>这个问题需要运用异或的性质。对于任意数 a，满足：</p>
+<p><span class="math display">\[
 \begin{align}
 a \oplus a = 0\\\\
 a \oplus 0 = a
-\end{align}</script><p>于是算出所有数的异或就是答案。</p>
+\end{align}
+\]</span></p>
+<p>于是算出所有数的异或就是答案。</p>
 
       
     </div>
@@ -554,6 +593,7 @@ a \oplus 0 = a
     <div class="post-body" itemprop="articleBody">
           <p>有n个人围坐在一起，从第一个人开始报数，数到m的那个人出列，然后从出列的下一个人开始重新报数，数到m的那个人又出列，重复这个过程直到剩下最后一个人。求这个人在原队列中的位置。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">josephus</span>(<span class="params">n, m</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> (josephus(n - <span class="number">1</span>, m) + m) % n</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -637,69 +677,107 @@ a \oplus 0 = a
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="时间序列预测"><a href="#时间序列预测" class="headerlink" title="时间序列预测"></a>时间序列预测</h2><p>时间序列预测是指使用过去的时间序列数据来预测未来的数据点。</p>
+          <h2 id="时间序列预测">时间序列预测</h2>
+<p>时间序列预测是指使用过去的时间序列数据来预测未来的数据点。</p>
 <p><strong>时间序列分析的核心就是挖掘该时间序列中的自相关性</strong>。</p>
-<h2 id="时空序列预测"><a href="#时空序列预测" class="headerlink" title="时空序列预测"></a>时空序列预测</h2><p>时空序列包含了时间与空间上的信息。我们在这里使用的雷达数据就是典型的时空序列。</p>
-<h2 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h2><p>循环神经网络(RNN)是一种简单的用于时间序列预测的神经网络模型。RNN的特点是其神经元之间存在循环连接，神经元接受输入数据以及上一个时间的隐藏状态。</p>
-<script type="math/tex; mode=display">
+<h2 id="时空序列预测">时空序列预测</h2>
+<p>时空序列包含了时间与空间上的信息。我们在这里使用的雷达数据就是典型的时空序列。</p>
+<h2 id="rnn">RNN</h2>
+<p>循环神经网络(RNN)是一种简单的用于时间序列预测的神经网络模型。RNN的特点是其神经元之间存在循环连接，神经元接受输入数据以及上一个时间的隐藏状态。
+<span class="math display">\[
 h_t = \sigma(W_{hh} \cdot h_{t-1} + W_{hx} \cdot x_t + b_h)
-y_t = W_{hy} \cdot h_t + b_y</script><h2 id="梯度消失与梯度爆炸"><a href="#梯度消失与梯度爆炸" class="headerlink" title="梯度消失与梯度爆炸"></a>梯度消失与梯度爆炸</h2><p>在反向传播时，可能会经过多层的权重更新，导致梯度逐渐变小，最终趋近于零，这就是梯度消失。这种现象在 RNN 上尤其常见，因为存在循环连接时，很小的梯度会不断相乘。同样，如果梯度逐渐变大，这就是梯度爆炸。</p>
-<p>梯度消失会导致网络的前期层几乎不更新参数，难以收敛，梯度爆炸会导致权重更新过快，破坏网络的稳定性。为了解决 RNN 中的这些问题，出现了一些改进的模型，如 LSTM。</p>
-<h2 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h2><img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/1.png" class="" title="这是一张图片">
-<p>长短期记忆(LSTM)神经网络是一种特殊的 RNN。传统的 RNN 在捕捉长期依赖关系时通常表现不佳，容易出现梯度消失与梯度爆炸问题。</p>
-<p>LSTM 的核心思想是引入了门控机制，允许网络选择性地更新和忽略隐藏状态中的信息，从而更好地控制信息的流动。一个标准的 LSTM 单元包括三个门控和一个记忆单元：</p>
-<ol>
-<li><p><strong>遗忘门</strong>：$f_t=\sigma(W_{f}\cdot[h_{t-1},x_t]+b_f)$</p>
-<p>遗忘门的作用是决定在当前时间步是否要从记忆单元中移除信息。它通过一个 sigmoid 函数来生成一个介于 0 和 1 之间的值，来控制记忆单元中的信息保留程度。</p>
-</li>
-<li><p><strong>输入门</strong>：$i_t=\sigma(W_{i}\cdot[h_{t-1},x_t]+b_i)$</p>
-<p>$\hat{c_t}=\tanh(W_c\cdot[h_{t-1},x_t]+b_c)$</p>
-<p>输入门决定在当前时间步要从输入数据中添加多少信息到记忆单元中。它包括一个 sigmoid 层和一个 tanh 层，用于确定更新的记忆内容。</p>
-</li>
-<li><p><strong>更新门</strong>：$c_t=f_t\circ c_{t-1}+i_t\circ \hat{c_t}$</p>
-<p>更新门根据遗忘门和输出门的控制，计算得到更新的内容。</p>
-</li>
-<li><p><strong>输出门</strong>：$o_t=\sigma(W_o\cdot[h_{t-1},x_t]+b_o)$</p>
-<p>$h_t=o_t\circ\tanh(c_t)$</p>
-<p>输出门决定在当前时间步要从记忆单元中提取多少信息作为输出。它通过一个 sigmoid 层和记忆单元的内容来生成一个输出。</p>
-</li>
+y_t = W_{hy} \cdot h_t + b_y
+\]</span></p>
+<h2 id="梯度消失与梯度爆炸">梯度消失与梯度爆炸</h2>
+<p>在反向传播时，可能会经过多层的权重更新，导致梯度逐渐变小，最终趋近于零，这就是梯度消失。这种现象在
+RNN
+上尤其常见，因为存在循环连接时，很小的梯度会不断相乘。同样，如果梯度逐渐变大，这就是梯度爆炸。</p>
+<p>梯度消失会导致网络的前期层几乎不更新参数，难以收敛，梯度爆炸会导致权重更新过快，破坏网络的稳定性。为了解决
+RNN 中的这些问题，出现了一些改进的模型，如 LSTM。</p>
+<h2 id="lstm">LSTM</h2>
+<img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/1.png" class="" title="这是一张图片">
+<p>长短期记忆(LSTM)神经网络是一种特殊的 RNN。传统的 RNN
+在捕捉长期依赖关系时通常表现不佳，容易出现梯度消失与梯度爆炸问题。</p>
+<p>LSTM
+的核心思想是引入了门控机制，允许网络选择性地更新和忽略隐藏状态中的信息，从而更好地控制信息的流动。一个标准的
+LSTM 单元包括三个门控和一个记忆单元：</p>
+<ol type="1">
+<li><p><strong>遗忘门</strong>：<span
+class="math inline">\(f_t=\sigma(W_{f}\cdot[h_{t-1},x_t]+b_f)\)</span></p>
+<p>遗忘门的作用是决定在当前时间步是否要从记忆单元中移除信息。它通过一个
+sigmoid 函数来生成一个介于 0 和 1
+之间的值，来控制记忆单元中的信息保留程度。</p></li>
+<li><p><strong>输入门</strong>：<span
+class="math inline">\(i_t=\sigma(W_{i}\cdot[h_{t-1},x_t]+b_i)\)</span></p>
+<p><span
+class="math inline">\(\hat{c_t}=\tanh(W_c\cdot[h_{t-1},x_t]+b_c)\)</span></p>
+<p>输入门决定在当前时间步要从输入数据中添加多少信息到记忆单元中。它包括一个
+sigmoid 层和一个 tanh 层，用于确定更新的记忆内容。</p></li>
+<li><p><strong>更新门</strong>：<span class="math inline">\(c_t=f_t\circ
+c_{t-1}+i_t\circ \hat{c_t}\)</span></p>
+<p>更新门根据遗忘门和输出门的控制，计算得到更新的内容。</p></li>
+<li><p><strong>输出门</strong>：<span
+class="math inline">\(o_t=\sigma(W_o\cdot[h_{t-1},x_t]+b_o)\)</span></p>
+<p><span class="math inline">\(h_t=o_t\circ\tanh(c_t)\)</span></p>
+<p>输出门决定在当前时间步要从记忆单元中提取多少信息作为输出。它通过一个
+sigmoid 层和记忆单元的内容来生成一个输出。</p></li>
 </ol>
-<h3 id="变种——增加peephole"><a href="#变种——增加peephole" class="headerlink" title="变种——增加peephole"></a>变种——增加peephole</h3><p>为了进一步增强 LSTM 的建模能力，我们允许门控使用记忆单元中的内容作为输入：</p>
-<script type="math/tex; mode=display">
+<h3 id="变种增加peephole">变种——增加peephole</h3>
+<p>为了进一步增强 LSTM
+的建模能力，我们允许门控使用记忆单元中的内容作为输入： <span
+class="math display">\[
 \begin{align}
-f_t&=\sigma(W_{f}\cdot[h_{t-1},x_t,c_{t-1}]+b_f)\\\\
-i_t&=\sigma(W_{i}\cdot[h_{t-1},x_t,c_{t-1}]+b_i)\\\\
-\hat{c_t}&=\tanh(W_c\cdot[h_{t-1},x_t,c_{t-1}]+b_c)\\\\
-c_t&=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\\\
-o_t&=\sigma(W_{o}\cdot[h_{t-1},x_t,c_{t-1}]+b_o)\\\\
-h_t&=o_t\circ\tanh(c_t)
-\end{align}</script><img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/2.png" class="" title="这是一张图片">
-<h2 id="ConvLSTM"><a href="#ConvLSTM" class="headerlink" title="ConvLSTM"></a>ConvLSTM</h2><p>ConvLSTM 将矩阵相乘的操作更换为卷积。通过卷积操作，实现了对时空信息的特征提取。</p>
-<script type="math/tex; mode=display">
+f_t&amp;=\sigma(W_{f}\cdot[h_{t-1},x_t,c_{t-1}]+b_f)\\\\
+i_t&amp;=\sigma(W_{i}\cdot[h_{t-1},x_t,c_{t-1}]+b_i)\\\\
+\hat{c_t}&amp;=\tanh(W_c\cdot[h_{t-1},x_t,c_{t-1}]+b_c)\\\\
+c_t&amp;=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\\\
+o_t&amp;=\sigma(W_{o}\cdot[h_{t-1},x_t,c_{t-1}]+b_o)\\\\
+h_t&amp;=o_t\circ\tanh(c_t)
+\end{align}
+\]</span> <img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/2.png" class="" title="这是一张图片"></p>
+<h2 id="convlstm">ConvLSTM</h2>
+<p>ConvLSTM
+将矩阵相乘的操作更换为卷积。通过卷积操作，实现了对时空信息的特征提取。
+<span class="math display">\[
 \begin{align}
-f_t&=\sigma(W_{f}\ast[h_{t-1},x_t,c_{t-1}]+b_f)\\\\
-i_t&=\sigma(W_{i}\ast[h_{t-1},x_t,c_{t-1}]+b_i)\\\\
-\hat{c_t}&=\tanh(W_c\ast[h_{t-1},x_t,c_{t-1}]+b_c)\\\\
-c_t&=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\\\
-o_t&=\sigma(W_{o}\ast[h_{t-1},x_t,c_{t-1}]+b_o)\\\\
-h_t&=o_t\circ\tanh(c_t)
-\end{align}</script><h2 id="Encoding-Forecasting-Structure"><a href="#Encoding-Forecasting-Structure" class="headerlink" title="Encoding Forecasting Structure"></a>Encoding Forecasting Structure</h2><img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/3.png" class="" title="这是一张图片">
-<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>我们使用的数据是20230530的雷达数据，存储格式为。通过雷达回波数据，我们可以利用 Z-R 关系估计降水量：</p>
-<script type="math/tex; mode=display">
-Z=aR^b</script><p>其中 $Z$ 为回波强度，$R$ 为降水量。</p>
-<p>此处的雷达数据中存放的回波强度单位为 dBZ，这意味着</p>
-<script type="math/tex; mode=display">
-dBZ=10\lg a + 10b\lg R</script><p>其范围大致在 $[-20,70]$。</p>
-<p>另外，雷达存储的 dBZ 数据并不是严格的三维网格数据。我们通过插值的方法，将其转化为分辨率 2km 的三位网格数据，随后垂直方向取第一个通道的二维数据作为原始数据。</p>
-<h3 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h3><p>输入的雷达数据中有较多的缺测值，我们统一用 -20 替换。</p>
-<p>由于所构建的模型的输出范围是$[0,1]$，我们对所有的 dBZ 都进行了如下操作：</p>
-<script type="math/tex; mode=display">
+f_t&amp;=\sigma(W_{f}\ast[h_{t-1},x_t,c_{t-1}]+b_f)\\\\
+i_t&amp;=\sigma(W_{i}\ast[h_{t-1},x_t,c_{t-1}]+b_i)\\\\
+\hat{c_t}&amp;=\tanh(W_c\ast[h_{t-1},x_t,c_{t-1}]+b_c)\\\\
+c_t&amp;=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\\\
+o_t&amp;=\sigma(W_{o}\ast[h_{t-1},x_t,c_{t-1}]+b_o)\\\\
+h_t&amp;=o_t\circ\tanh(c_t)
+\end{align}
+\]</span></p>
+<h2 id="encoding-forecasting-structure">Encoding Forecasting
+Structure</h2>
+<img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/3.png" class="" title="这是一张图片">
+<h2 id="数据集">数据集</h2>
+<p>我们使用的数据是20230530的雷达数据，存储格式为。通过雷达回波数据，我们可以利用
+Z-R 关系估计降水量： <span class="math display">\[
+Z=aR^b
+\]</span> 其中 <span class="math inline">\(Z\)</span> 为回波强度，<span
+class="math inline">\(R\)</span> 为降水量。</p>
+<p>此处的雷达数据中存放的回波强度单位为 dBZ，这意味着 <span
+class="math display">\[
+dBZ=10\lg a + 10b\lg R
+\]</span> 其范围大致在 <span
+class="math inline">\([-20,70]\)</span>。</p>
+<p>另外，雷达存储的 dBZ
+数据并不是严格的三维网格数据。我们通过插值的方法，将其转化为分辨率 2km
+的三位网格数据，随后垂直方向取第一个通道的二维数据作为原始数据。</p>
+<h3 id="归一化">归一化</h3>
+<p>输入的雷达数据中有较多的缺测值，我们统一用 -20 替换。</p>
+<p>由于所构建的模型的输出范围是<span
+class="math inline">\([0,1]\)</span>，我们对所有的 dBZ
+都进行了如下操作： <span class="math display">\[
 P=\dfrac{dBZ+10}{70}\\\\
 input=\begin{cases}
-0,P<0\\\\
-1,P>1\\\\
+0,P&lt;0\\\\
+1,P&gt;1\\\\
 P,else
-\end{cases}</script><p>这样我们的输入被映射到 $[0,1]$ 上，同时筛除了部分异常点。</p>
+\end{cases}
+\]</span> 这样我们的输入被映射到 <span
+class="math inline">\([0,1]\)</span> 上，同时筛除了部分异常点。</p>
 
       
     </div>
@@ -778,17 +856,22 @@ P,else
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="实验题目"><a href="#实验题目" class="headerlink" title="实验题目"></a>实验题目</h2><p>设计并实现一个弱监督文本分类模型。</p>
+          <h2 id="实验题目">实验题目</h2>
+<p>设计并实现一个弱监督文本分类模型。</p>
 <ul>
 <li>我们只有类的名称，类的关键词和大量无标签的文本。</li>
 <li>在进阶任务中，我们删去了一些类的名称和关键词，我们需要实现识别未知类别。</li>
 </ul>
-<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><h3 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h3><h4 id="弱监督学习"><a href="#弱监督学习" class="headerlink" title="弱监督学习"></a>弱监督学习</h4><p>在有监督学习中，模型从带标签的数据中进行学习；在无监督学习中，模型从不带标签的数据中学习。弱监督学习可以说是结合了这两者。在弱监督学习中，我们拥有极少的带标签数据（或者是关于数据的一些先验知识）与较多的无标签数据，模型需要从这些数据中进行学习。</p>
+<h2 id="实验内容">实验内容</h2>
+<h3 id="算法原理">算法原理</h3>
+<h4 id="弱监督学习">弱监督学习</h4>
+<p>在有监督学习中，模型从带标签的数据中进行学习；在无监督学习中，模型从不带标签的数据中学习。弱监督学习可以说是结合了这两者。在弱监督学习中，我们拥有极少的带标签数据（或者是关于数据的一些先验知识）与较多的无标签数据，模型需要从这些数据中进行学习。</p>
 <p>弱监督学习的优点是，只需要较少的标签数据，降低了人工标注的成本和工作量，并在标注数据有限的情况下仍能获得良好的学习性能。但是，这也会产生一些难以避免的问题，例如准确率较低，模型过拟合等。</p>
 <p>本次实验就是一个弱监督学习的任务。在本次实验中，我们拥有的数据是类的名称和对应的关键词，以及大量无标签的文本数据，要求我们实现一个弱监督文本分类器。</p>
-<h4 id="自训练算法"><a href="#自训练算法" class="headerlink" title="自训练算法"></a>自训练算法</h4><p>自训练算法是一种半监督学习的方法，用于处理只有部分标注数据的情况。在自训练算法中，初始的标注数据集作为训练集训练一个初始模型，然后该模型用于对未标注数据进行预测，并将预测结果作为伪标签加入到训练集中，形成一个更大的训练集。接下来，使用这个扩充后的训练集集重新训练模型，重复这个过程多次。</p>
+<h4 id="自训练算法">自训练算法</h4>
+<p>自训练算法是一种半监督学习的方法，用于处理只有部分标注数据的情况。在自训练算法中，初始的标注数据集作为训练集训练一个初始模型，然后该模型用于对未标注数据进行预测，并将预测结果作为伪标签加入到训练集中，形成一个更大的训练集。接下来，使用这个扩充后的训练集集重新训练模型，重复这个过程多次。</p>
 <p>自训练算法的基本步骤如下：</p>
-<ol>
+<ol type="1">
 <li>使用初始标注数据集训练一个初始模型。</li>
 <li>使用该模型对未标注数据进行预测，并将预测结果作为伪标签。</li>
 <li>将已标注数据集和置信度较高的加入的伪标签组合成一个训练集。</li>
@@ -796,30 +879,42 @@ P,else
 <li>重复步骤2至4直到满足停止条件（例如达到最大迭代次数或模型性能收敛）。</li>
 </ol>
 <p>自训练算法的关键在于如何选择哪些未标注数据的预测结果可以被可靠地加入到已标注数据集中。通常使用一定的置信度阈值来筛选预测结果，并且对于置信度较高的样本才进行标记扩充，以尽量减少伪标签引入的噪声。</p>
-<h5 id="如何从关键词得到“伪标签”"><a href="#如何从关键词得到“伪标签”" class="headerlink" title="如何从关键词得到“伪标签”"></a>如何从关键词得到“伪标签”</h5><p>笔者提出了三种方案：</p>
-<ol>
-<li><p>如果文本中存在某一类别的关键词，就将该文本归为此类；</p>
-</li>
-<li><p>统计文本中某一类别的关键词数量，将其预测为关键词数量最多的类，在方案 1 的基础上做了一些补充；</p>
-</li>
-<li><p>将关键词作为初始的训练集，直接用于训练分类器，利用该分类器对所有文本分类，将置信度较高样本的作为下一次训练的训练集。</p>
-</li>
+<h5 id="如何从关键词得到伪标签">如何从关键词得到“伪标签”</h5>
+<p>笔者提出了三种方案：</p>
+<ol type="1">
+<li><p>如果文本中存在某一类别的关键词，就将该文本归为此类；</p></li>
+<li><p>统计文本中某一类别的关键词数量，将其预测为关键词数量最多的类，在方案
+1 的基础上做了一些补充；</p></li>
+<li><p>将关键词作为初始的训练集，直接用于训练分类器，利用该分类器对所有文本分类，将置信度较高样本的作为下一次训练的训练集。</p></li>
 </ol>
-<p>1 与 2 都不涉及分类模型，只能标注部分词，而 3 是对所有的数据都进行了标注，但方案 3 对那些没有关键词存在的文本分类效果也是很差的。</p>
-<h5 id="如何选取分类器"><a href="#如何选取分类器" class="headerlink" title="如何选取分类器"></a>如何选取分类器</h5><p>我们尝试了不同分类器在本次任务中的分类效果。在传统的机器学习方法中，我们选择了逻辑回归；在深度学习的方法中，我们选择了 CNN。但是由于 CNN 结构复杂，参数相对较多，训练时间相对较长，我在 CNN 上花的时间相对较少。</p>
-<h5 id="如何扩展训练集"><a href="#如何扩展训练集" class="headerlink" title="如何扩展训练集"></a>如何扩展训练集</h5><p>根据课件中介绍的算法，我们需要在“伪标签”数据中选择 M 个置信度最高的样本加入训练集。然而在实际情况中，这个 M 是不好取的。</p>
+<p>1 与 2 都不涉及分类模型，只能标注部分词，而 3
+是对所有的数据都进行了标注，但方案 3
+对那些没有关键词存在的文本分类效果也是很差的。</p>
+<h5 id="如何选取分类器">如何选取分类器</h5>
+<p>我们尝试了不同分类器在本次任务中的分类效果。在传统的机器学习方法中，我们选择了逻辑回归；在深度学习的方法中，我们选择了
+CNN。但是由于 CNN 结构复杂，参数相对较多，训练时间相对较长，我在 CNN
+上花的时间相对较少。</p>
+<h5 id="如何扩展训练集">如何扩展训练集</h5>
+<p>根据课件中介绍的算法，我们需要在“伪标签”数据中选择 M
+个置信度最高的样本加入训练集。然而在实际情况中，这个 M 是不好取的。</p>
 <ul>
 <li>M 过小，会导致模型的泛化性不好，模型容易出现过拟合。</li>
-<li>M 过大，会导致每次选取的“伪标签”数据中，预测错误的数据增加，训练集的质量下降。</li>
-<li>即使 M 在训练中的某个时刻取得了一个合适的值，它可能会随着训练集的增大而变得不合适。举例来说，向 10 个数据中加入 1 个数据，与向 1000 个数据中加入 1 个数据，所带来的影响肯定是不同的。</li>
+<li>M
+过大，会导致每次选取的“伪标签”数据中，预测错误的数据增加，训练集的质量下降。</li>
+<li>即使 M
+在训练中的某个时刻取得了一个合适的值，它可能会随着训练集的增大而变得不合适。举例来说，向
+10 个数据中加入 1 个数据，与向 1000 个数据中加入 1
+个数据，所带来的影响肯定是不同的。</li>
 </ul>
 <p>于是笔者考虑将 M 取为一个等差数列，在训练过程中不断增大 M 的值。</p>
 <p>我们也可以换一种方法，用置信度作为数据是否加入训练集的指标。这时我们需要确定一个阈值，将所有预测置信度大于该阈值的数据加入到训练集。同样地，根据我们上面的讨论，这个阈值也是要随着训练不断增大的。</p>
 <p>整个自训练过程的框架如下：</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\alg.png) -->
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/alg.png" class="" title="这是一张图片">
-<h4 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h4><p>我们介绍几种在分类任务中可以使用的评价指标。</p>
-<h5 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h5><p>在二分类问题中，我们将分类结果分为 4 类：</p>
+<h4 id="评价指标">评价指标</h4>
+<p>我们介绍几种在分类任务中可以使用的评价指标。</p>
+<h5 id="混淆矩阵">混淆矩阵</h5>
+<p>在二分类问题中，我们将分类结果分为 4 类：</p>
 <ul>
 <li>TP（真正例）：模型正确地将正例样本分类为正例。</li>
 <li>TN（真负例）：模型正确地将反例样本分类为负例。</li>
@@ -827,40 +922,55 @@ P,else
 <li>FN（假负例）：模型错误地将正例样本分类为负例。</li>
 </ul>
 <p>如下：</p>
-<div class="table-container">
 <table>
 <thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">预测为正例</th>
-<th style="text-align:center">预测为负例</th>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">预测为正例</th>
+<th style="text-align: center;">预测为负例</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center"><strong>实际为正例</strong></td>
-<td style="text-align:center">TP</td>
-<td style="text-align:center">FN</td>
+<tr class="odd">
+<td style="text-align: center;"><strong>实际为正例</strong></td>
+<td style="text-align: center;">TP</td>
+<td style="text-align: center;">FN</td>
 </tr>
-<tr>
-<td style="text-align:center"><strong>实际为负例</strong></td>
-<td style="text-align:center">FP</td>
-<td style="text-align:center">TN</td>
+<tr class="even">
+<td style="text-align: center;"><strong>实际为负例</strong></td>
+<td style="text-align: center;">FP</td>
+<td style="text-align: center;">TN</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>多分类问题的混淆矩阵是类似的，$Mat[i,j]$ 上的元素表示实际属于类别 i 的样本被预测为 j 的数量。可以发现矩阵对角线上的元素就表示了模型正确分类的样本数。</p>
-<h5 id="准确率"><a href="#准确率" class="headerlink" title="准确率"></a>准确率</h5><p>准确率就是模型分类正确的比例。在混淆矩阵中，其等于对角线元素之和/所有元素之和。在二分类任务中：</p>
-<script type="math/tex; mode=display">
-Acc=\dfrac{TP+TN}{TP+FN+FP+TN}</script><h5 id="精确率"><a href="#精确率" class="headerlink" title="精确率"></a>精确率</h5><p>在二分类任务中，精确率指的是模型预测为正的样本中实际为正的比例。</p>
-<script type="math/tex; mode=display">
-P=\dfrac{TP}{TP+FP}</script><h5 id="召回率"><a href="#召回率" class="headerlink" title="召回率"></a>召回率</h5><p>在二分类任务中，召回率指的是实际为正的样本中被预测为正的比例。</p>
-<script type="math/tex; mode=display">
-R=\dfrac{TP}{TP+FN}</script><h5 id="f1-score"><a href="#f1-score" class="headerlink" title="f1_score"></a>f1_score</h5><p>在二分类任务中，f1_score 是精确率与召回率的调和平均。</p>
-<script type="math/tex; mode=display">
-F_1=2\dfrac{P\times R}{P+R}</script><p>对于多分类任务，我们可以使用 macro-f1。对于每个类别，分别计算该类别的 F1 分数，随后求平均得到 macro-f1。</p>
-<h4 id="未知类型识别"><a href="#未知类型识别" class="headerlink" title="未知类型识别"></a>未知类型识别</h4><p>在进阶任务中，我们删去了一些类的名称和关键词，需要实现识别未知类别。</p>
+<p>多分类问题的混淆矩阵是类似的，<span
+class="math inline">\(Mat[i,j]\)</span> 上的元素表示实际属于类别 i
+的样本被预测为 j
+的数量。可以发现矩阵对角线上的元素就表示了模型正确分类的样本数。</p>
+<h5 id="准确率">准确率</h5>
+<p>准确率就是模型分类正确的比例。在混淆矩阵中，其等于对角线元素之和/所有元素之和。在二分类任务中：
+<span class="math display">\[
+Acc=\dfrac{TP+TN}{TP+FN+FP+TN}
+\]</span></p>
+<h5 id="精确率">精确率</h5>
+<p>在二分类任务中，精确率指的是模型预测为正的样本中实际为正的比例。
+<span class="math display">\[
+P=\dfrac{TP}{TP+FP}
+\]</span></p>
+<h5 id="召回率">召回率</h5>
+<p>在二分类任务中，召回率指的是实际为正的样本中被预测为正的比例。 <span
+class="math display">\[
+R=\dfrac{TP}{TP+FN}
+\]</span></p>
+<h5 id="f1_score">f1_score</h5>
+<p>在二分类任务中，f1_score 是精确率与召回率的调和平均。 <span
+class="math display">\[
+F_1=2\dfrac{P\times R}{P+R}
+\]</span> 对于多分类任务，我们可以使用
+macro-f1。对于每个类别，分别计算该类别的 F1 分数，随后求平均得到
+macro-f1。</p>
+<h4 id="未知类型识别">未知类型识别</h4>
+<p>在进阶任务中，我们删去了一些类的名称和关键词，需要实现识别未知类别。</p>
 <p>课件上给出了三种方法：</p>
 <ul>
 <li>基于置信度，将置信度小于某个值的预测为未知类别</li>
@@ -872,88 +982,147 @@ F_1=2\dfrac{P\times R}{P+R}</script><p>对于多分类任务，我们可以使�
 <blockquote>
 <p>这一部分很多都是复用以前的报告。</p>
 </blockquote>
-<h4 id="文本向量"><a href="#文本向量" class="headerlink" title="文本向量"></a>文本向量</h4><p>首先我们需要将文本转换为向量，作为分类器的输入。</p>
-<h5 id="Bag-of-Words"><a href="#Bag-of-Words" class="headerlink" title="Bag-of-Words"></a>Bag-of-Words</h5><p>Bag-of-Words 考虑单词出现的次数，向量的每一维度的值表示该维度表示的单词在文档中出现的次数。</p>
-<h5 id="TF-IDF"><a href="#TF-IDF" class="headerlink" title="TF-IDF"></a>TF-IDF</h5><p>我们用 $TF$ 表示词频归一化的概率，$IDF$ 表示逆向文档频率。$IDF$ 的计算公式如下：</p>
-<script type="math/tex; mode=display">
-IDF_{x_i}=\log\dfrac{N}{1+n(x_i)}</script><p>其中 $N$ 为文档总数，$n(x_i)$ 为出现了单词 $x_i$ 的文档总数。</p>
-<p>于是我们的 $TFIDF=TF\times IDF$。</p>
-<h4 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h4><p>在二元逻辑回归中，我们使用 sigmoid 函数：</p>
-<script type="math/tex; mode=display">
-y = \dfrac{1}{1+e^{-z}}</script><p>对 $z=\mathbf{W}^\mathrm T\mathbf{x}$进行激活。这样保证了输出 $y\in(0,1)$，我们就可以将 $y$ 看作一个概率值。</p>
-<p>在多元逻辑回归中，我们使用 softmax 函数：</p>
-<script type="math/tex; mode=display">
-y(z_i)=\dfrac{e^{z_i}}{\sum_{k=1}^{n}e^{z_k}}</script><p>对 $z_i=\mathbf{W}_i^\mathrm{T}\mathbf{x}$ 进行激活。这样我们就将一个类的线性的输出转换为了其被分为这个类的概率。随后我们可以选择概率最大的类别作为预测结果。</p>
+<h4 id="文本向量">文本向量</h4>
+<p>首先我们需要将文本转换为向量，作为分类器的输入。</p>
+<h5 id="bag-of-words">Bag-of-Words</h5>
+<p>Bag-of-Words
+考虑单词出现的次数，向量的每一维度的值表示该维度表示的单词在文档中出现的次数。</p>
+<h5 id="tf-idf">TF-IDF</h5>
+<p>我们用 <span class="math inline">\(TF\)</span>
+表示词频归一化的概率，<span class="math inline">\(IDF\)</span>
+表示逆向文档频率。<span class="math inline">\(IDF\)</span>
+的计算公式如下： <span class="math display">\[
+IDF_{x_i}=\log\dfrac{N}{1+n(x_i)}
+\]</span> 其中 <span class="math inline">\(N\)</span> 为文档总数，<span
+class="math inline">\(n(x_i)\)</span> 为出现了单词 <span
+class="math inline">\(x_i\)</span> 的文档总数。</p>
+<p>于是我们的 <span class="math inline">\(TFIDF=TF\times
+IDF\)</span>。</p>
+<h4 id="逻辑回归">逻辑回归</h4>
+<p>在二元逻辑回归中，我们使用 sigmoid 函数： <span
+class="math display">\[
+y = \dfrac{1}{1+e^{-z}}
+\]</span> 对 <span class="math inline">\(z=\mathbf{W}^\mathrm
+T\mathbf{x}\)</span>进行激活。这样保证了输出 <span
+class="math inline">\(y\in(0,1)\)</span>，我们就可以将 <span
+class="math inline">\(y\)</span> 看作一个概率值。</p>
+<p>在多元逻辑回归中，我们使用 softmax 函数： <span
+class="math display">\[
+y(z_i)=\dfrac{e^{z_i}}{\sum_{k=1}^{n}e^{z_k}}
+\]</span> 对 <span
+class="math inline">\(z_i=\mathbf{W}_i^\mathrm{T}\mathbf{x}\)</span>
+进行激活。这样我们就将一个类的线性的输出转换为了其被分为这个类的概率。随后我们可以选择概率最大的类别作为预测结果。</p>
 <p>在训练过程中，我们需要使用极大似然估计法，用负的对数似然函数作为损失函数，随后使用优化算法（如梯度下降）学习参数。</p>
-<h5 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h5><p>L1 正则化和 L2 正则化是逻辑回归中常用的两种正则化方法。L1 正则化通过在损失函数中增加 L1 范数来惩罚模型的系数 $\mathbf{W}$，而 L2 正则化选择在损失函数中增加 L2 范数。</p>
-<script type="math/tex; mode=display">
-L_1=\sum|w_i|\quad L_2=\sum w_i^2</script><p>这样能够在一定程度上减少过拟合现象。</p>
-<h4 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h4><p>一个最简单的卷积神经网络通常包含以下几层：</p>
+<h5 id="正则化">正则化</h5>
+<p>L1 正则化和 L2 正则化是逻辑回归中常用的两种正则化方法。L1
+正则化通过在损失函数中增加 L1 范数来惩罚模型的系数 <span
+class="math inline">\(\mathbf{W}\)</span>，而 L2
+正则化选择在损失函数中增加 L2 范数。 <span class="math display">\[
+L_1=\sum|w_i|\quad L_2=\sum w_i^2
+\]</span> 这样能够在一定程度上减少过拟合现象。</p>
+<h4 id="cnn">CNN</h4>
+<p>一个最简单的卷积神经网络通常包含以下几层：</p>
 <ul>
 <li>卷积层</li>
 <li>ReLU 层</li>
 <li>池化层</li>
 <li>全连接层</li>
 </ul>
-<h5 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h5><p>在 CNN 中，我们的卷积运算定义为：</p>
-<script type="math/tex; mode=display">
-y_{i,j}=\sum_{u=1}^m\sum_{v=1}^nw_{u,v}\times x_{i-u+1,j-v+1}</script><p>通过这样的卷积运算，我们可以将一个高维度的矩阵映射为一个低维度的矩阵，从而显著减少神经网络中的参数数量。</p>
-<h5 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h5><p>ReLU 函数定义如下：</p>
-<script type="math/tex; mode=display">
-f(x)=\max(0,x)</script><p>ReLU 函数在卷积神经网络中是一种激活函数。该函数的主要优点是收敛速度快，易于求梯度。</p>
-<h5 id="池化"><a href="#池化" class="headerlink" title="池化"></a>池化</h5><p>池化操作用于对输入特征进行下采样，进一步筛选特征，减少参数数量，增强模型的鲁棒性。常用的池化操作是最大池化，该操作是在特定区域中取出特征图中的最大值作为输出，一般取池化区域为 $2\times 2$，步长为 $2$。</p>
-<h5 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h5><p>全连接层是一个线性层，通常出现在卷积神经网络的尾部，连接方式与其在传统的神经网络中一致，与上一层的所有神经元相连，用来综合前面提取的特征，输出分类或回归的结果。</p>
+<h5 id="卷积">卷积</h5>
+<p>在 CNN 中，我们的卷积运算定义为： <span class="math display">\[
+y_{i,j}=\sum_{u=1}^m\sum_{v=1}^nw_{u,v}\times x_{i-u+1,j-v+1}
+\]</span>
+通过这样的卷积运算，我们可以将一个高维度的矩阵映射为一个低维度的矩阵，从而显著减少神经网络中的参数数量。</p>
+<h5 id="relu">ReLU</h5>
+<p>ReLU 函数定义如下： <span class="math display">\[
+f(x)=\max(0,x)
+\]</span> ReLU
+函数在卷积神经网络中是一种激活函数。该函数的主要优点是收敛速度快，易于求梯度。</p>
+<h5 id="池化">池化</h5>
+<p>池化操作用于对输入特征进行下采样，进一步筛选特征，减少参数数量，增强模型的鲁棒性。常用的池化操作是最大池化，该操作是在特定区域中取出特征图中的最大值作为输出，一般取池化区域为
+<span class="math inline">\(2\times 2\)</span>，步长为 <span
+class="math inline">\(2\)</span>。</p>
+<h5 id="全连接">全连接</h5>
+<p>全连接层是一个线性层，通常出现在卷积神经网络的尾部，连接方式与其在传统的神经网络中一致，与上一层的所有神经元相连，用来综合前面提取的特征，输出分类或回归的结果。</p>
 <p>流程图如下：</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\lab6\ori.png) -->
 
-<h5 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h5><p>通常我们称更新参数的算法为优化器。</p>
+<h5 id="优化器">优化器</h5>
+<p>通常我们称更新参数的算法为优化器。</p>
 <p>在这里我们使用的优化器主要是 SGD 与 Adam。</p>
 <ul>
-<li><p>SGD 是随机梯度下降法。我们记需要优化的参数为 $w$，损失函数为 $L$，学习率为 $\eta$ 则 SGD 算法更新参数的公式为：</p>
-<script type="math/tex; mode=display">
-w=w-\eta\dfrac{\partial L}{\partial w}</script><p>该算法计算简单，易于实现，但是容易陷入局部最优解。</p>
-</li>
-<li><p>Adam 是自适应矩估计法。在 Adam 中，我们引入动量的概念。首先是一阶动量：</p>
-<script type="math/tex; mode=display">
-m_t=\beta_1m_{t-1}+(1-\beta_1)g_t</script><p>其中 $g_t=\dfrac{\partial L}{\partial w}$。同样还有二阶动量：</p>
-<script type="math/tex; mode=display">
-v_t=\beta_2v_{t-1}+(1-\beta_2)g_t^2</script><p>我们对 $m_t$ 与 $v_t$ 进行偏差校正：</p>
-<script type="math/tex; mode=display">
+<li><p>SGD 是随机梯度下降法。我们记需要优化的参数为 <span
+class="math inline">\(w\)</span>，损失函数为 <span
+class="math inline">\(L\)</span>，学习率为 <span
+class="math inline">\(\eta\)</span> 则 SGD 算法更新参数的公式为： <span
+class="math display">\[
+w=w-\eta\dfrac{\partial L}{\partial w}
+\]</span> 该算法计算简单，易于实现，但是容易陷入局部最优解。</p></li>
+<li><p>Adam 是自适应矩估计法。在 Adam
+中，我们引入动量的概念。首先是一阶动量： <span class="math display">\[
+m_t=\beta_1m_{t-1}+(1-\beta_1)g_t
+\]</span> 其中 <span class="math inline">\(g_t=\dfrac{\partial
+L}{\partial w}\)</span>。同样还有二阶动量： <span
+class="math display">\[
+v_t=\beta_2v_{t-1}+(1-\beta_2)g_t^2
+\]</span> 我们对 <span class="math inline">\(m_t\)</span> 与 <span
+class="math inline">\(v_t\)</span> 进行偏差校正： <span
+class="math display">\[
 \begin{aligned}
-\hat{m_t}&=\dfrac{m_t}{1-\beta_1^t}\\\\
-\hat{v_t}&=\dfrac{v_t}{1-\beta_2^t}
-\end{aligned}</script></li>
+\hat{m_t}&amp;=\dfrac{m_t}{1-\beta_1^t}\\\\
+\hat{v_t}&amp;=\dfrac{v_t}{1-\beta_2^t}
+\end{aligned}
+\]</span></p>
+<p>于是 Adam 更新参数的公式如下： <span class="math display">\[
+w=w-\eta\dfrac{\hat {m_t}}{\sqrt{\hat {v_t}}+\epsilon}
+\]</span></p>
+<p><span class="math inline">\(m_t\)</span>
+记录了梯度的平均，可以使算法根据历史梯度进行参数更新；<span
+class="math inline">\(v_t\)</span>
+记录了梯度的平方平均，实质上是在考虑过滤了震荡后的历史梯度。因此 Adam
+算法实现了根据历史梯度的震荡以及过滤了震荡后的历史梯度来对变量进行更新。</p></li>
 </ul>
-<p>  于是 Adam 更新参数的公式如下：</p>
-<script type="math/tex; mode=display">
-  w=w-\eta\dfrac{\hat {m_t}}{\sqrt{\hat {v_t}}+\epsilon}</script><p>  $m_t$ 记录了梯度的平均，可以使算法根据历史梯度进行参数更新；$v_t$ 记录了梯度的平方平均，实质上是在考虑过滤了震荡后的历史梯度。因此 Adam 算法实现了根据历史梯度的震荡以及过滤了震荡后的历史梯度来对变量进行更新。</p>
-<h5 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h5><p>损失函数度量了模型预测值与真是值的差距。</p>
+<h5 id="损失函数">损失函数</h5>
+<p>损失函数度量了模型预测值与真是值的差距。</p>
 <ul>
-<li><p>交叉熵函数：$L(p,q)=-\sum_xp(x)\log q(x)$</p>
-</li>
-<li><p>均方误差损失函数：$MSE(y,\hat y)=\dfrac{1}{n}\sum_{i=1}^n(y_i-\hat y_i)^2$</p>
-</li>
-<li><p>距离损失函数，通过两个向量之间的距离来描述损失。这里的距离可以取多种距离，例如曼哈顿距离、欧氏距离、余弦相似度。</p>
-</li>
+<li><p>交叉熵函数：<span class="math inline">\(L(p,q)=-\sum_xp(x)\log
+q(x)\)</span></p></li>
+<li><p>均方误差损失函数：<span class="math inline">\(MSE(y,\hat
+y)=\dfrac{1}{n}\sum_{i=1}^n(y_i-\hat y_i)^2\)</span></p></li>
+<li><p>距离损失函数，通过两个向量之间的距离来描述损失。这里的距离可以取多种距离，例如曼哈顿距离、欧氏距离、余弦相似度。</p></li>
 </ul>
 <p>我们本次建立的 CNN 如下：</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\lab6\net.png) -->
 
-<p>输入经过一个词嵌入层后输入卷积层，分别进行具有不同卷积核大小的卷积操作，得到的输出经过最大池化层得到输出，进入 dropout 层，通过一个线性层将输入映射为对应的分类。如果为了获取概率，我们可以对输出层做 softmax。设网络的第 i 个输出为 $W_i$，softmax 操作是指：</p>
-<script type="math/tex; mode=display">
-p(y=i)=\dfrac{e^{W_i}}{\sum_{k=1}^N e^{W_k}}</script><p>这样我们实现了归一化，并得到了样本被分为某一类的概率。</p>
-<h3 id="关键代码展示"><a href="#关键代码展示" class="headerlink" title="关键代码展示"></a>关键代码展示</h3><p>使用逻辑回归，进行自训练算法的代码如下：</p>
+<p>输入经过一个词嵌入层后输入卷积层，分别进行具有不同卷积核大小的卷积操作，得到的输出经过最大池化层得到输出，进入
+dropout
+层，通过一个线性层将输入映射为对应的分类。如果为了获取概率，我们可以对输出层做
+softmax。设网络的第 i 个输出为 <span
+class="math inline">\(W_i\)</span>，softmax 操作是指： <span
+class="math display">\[
+p(y=i)=\dfrac{e^{W_i}}{\sum_{k=1}^N e^{W_k}}
+\]</span> 这样我们实现了归一化，并得到了样本被分为某一类的概率。</p>
+<h3 id="关键代码展示">关键代码展示</h3>
+<p>使用逻辑回归，进行自训练算法的代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(maxiter):</span><br><span class="line">    <span class="comment"># if all texts are pseudo-labeled</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">sum</span>(labeled) == <span class="built_in">len</span>(labeled):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Training over.&quot;</span>)</span><br><span class="line">        X_vec = vectorizer.transform(traintexts)</span><br><span class="line">        y_pred = model.predict(X_vec)</span><br><span class="line">        acc = accuracy_score(trainlabels, y_pred)</span><br><span class="line">        f1 = f1_score(trainlabels, y_pred, average=<span class="string">&#x27;macro&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Final accuracy: <span class="subst">&#123;acc&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Final f1: <span class="subst">&#123;f1&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="comment"># take keywords as the initial training set</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">        X_new = keywords.copy()</span><br><span class="line">        y_new = y_train.copy()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Iteration <span class="subst">&#123;i + <span class="number">1</span>&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="comment"># predict for all texts</span></span><br><span class="line">    X_vec = vectorizer.transform(traintexts)</span><br><span class="line">    y_pred = model.predict(X_vec)</span><br><span class="line">    prob = model.predict_proba(X_vec)</span><br><span class="line">    acc = accuracy_score(trainlabels, y_pred)</span><br><span class="line">    f1 = f1_score(trainlabels, y_pred, average=<span class="string">&#x27;macro&#x27;</span>)</span><br><span class="line">    <span class="comment"># print(acc)</span></span><br><span class="line">    <span class="comment"># print(f1)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># take M samples with max prob    </span></span><br><span class="line">    sorted_indices = <span class="built_in">sorted</span>(<span class="built_in">range</span>(<span class="built_in">len</span>(prob)), key=<span class="keyword">lambda</span> i : <span class="built_in">max</span>(prob[i]) * (<span class="number">1</span> - labeled[i]), reverse=<span class="literal">True</span>)</span><br><span class="line">    cnt = <span class="number">0</span></span><br><span class="line">    <span class="comment"># add M samples into training set</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> sorted_indices[:M]:</span><br><span class="line">        <span class="keyword">if</span> labeled[j]:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        X_new.append(traintexts[j])</span><br><span class="line">        labeled[j] = <span class="number">1</span></span><br><span class="line">        y_new.append(y_pred[j])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># train with new training set</span></span><br><span class="line">    X_new_vec = vectorizer.fit_transform(X_new)</span><br><span class="line">    model.fit(X_new_vec, y_new)</span><br><span class="line">    M += K</span><br></pre></td></tr></table></figure>
 <p>我们每次迭代时，都取上一次迭代得到的分类器对所有的文本进行预测，取其中置信度最高的一些加入训练集，同时我们也需要保证训练集中的数据不会有重复的，因此我们开一个列表来标记所有放入训练集中的文本。当所有的文本都进入训练集时，我们结束训练。</p>
 <p>使用 CNN 的逻辑也是差不多的，但是我们需要使用不同的函数：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">select</span>(<span class="params">model, dataloader, device, ts, ls, labeled, trLabels</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    Select M samples and add them to training set. Return a new trainloader and accuracy.</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># ts: all texts</span></span><br><span class="line">    <span class="comment"># trLabels: all labels</span></span><br><span class="line">    <span class="comment"># labeled: a list with zeros initialy</span></span><br><span class="line">    model.<span class="built_in">eval</span>()</span><br><span class="line">    proba = []</span><br><span class="line">    traintexts = []</span><br><span class="line">    trainlabels = []</span><br><span class="line">    correct = <span class="number">0</span></span><br><span class="line">    predicts = []</span><br><span class="line">    <span class="comment"># predict for all texts</span></span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        <span class="keyword">for</span> inputs, labels <span class="keyword">in</span> dataloader:</span><br><span class="line">            <span class="comment"># print(dataloader[0])</span></span><br><span class="line">            inputs, labels = inputs.to(device), labels.to(device)</span><br><span class="line">            outputs = model(inputs)</span><br><span class="line"></span><br><span class="line">            probs = F.softmax(outputs, dim=<span class="number">1</span>)</span><br><span class="line">            predictedProba, predictedLabel = torch.<span class="built_in">max</span>(probs, dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">            correct += (predictedLabel == labels.squeeze()).<span class="built_in">sum</span>().item()</span><br><span class="line">            proba += predictedProba.tolist()</span><br><span class="line">            predicts += predictedLabel.tolist()</span><br><span class="line">            </span><br><span class="line">    preLabels = [label2id[p] <span class="keyword">for</span> p <span class="keyword">in</span> predicts]</span><br><span class="line">    test_acc = correct / <span class="built_in">len</span>(dataloader.dataset)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># take M samples</span></span><br><span class="line">    sorted_indices = <span class="built_in">sorted</span>(<span class="built_in">range</span>(<span class="built_in">len</span>(proba)), key=<span class="keyword">lambda</span> i:proba[i]*(<span class="number">1</span>-labeled[i]), reverse=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># add into training set</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> sorted_indices[:M]:</span><br><span class="line">        <span class="keyword">if</span> labeled[i]:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        traintexts.append(ts[i])</span><br><span class="line">        trainlabels.append(preLabels[i])</span><br><span class="line">        labeled[i] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># get new trainloader</span></span><br><span class="line">    newTrainSet = DatasetMaper(traintexts, trainlabels, word2id)</span><br><span class="line">    newTrainLoader = DataLoader(newTrainSet, batch_size, shuffle=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> newTrainLoader, test_acc</span><br></pre></td></tr></table></figure>
-<h4 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h4><ol>
+<h4 id="创新点">创新点</h4>
+<ol type="1">
 <li>在从关键词得到文本的伪标签时，尝试将关键词作为文本向量初始化分类器，对所有文本进行伪标记，取出其中置信度较高的作为初始的训练集。但最后从结果来看，这个方法与我们提到的其他方案在效果上区别不大。</li>
 <li>在扩展训练集时，尝试在训练集增大的同时去增大加入训练集的样本个数，在一定程度上缓解了模型准确率随着自训练的进行而下降的现象。</li>
 </ol>
-<h2 id="实验结果与展示"><a href="#实验结果与展示" class="headerlink" title="实验结果与展示"></a>实验结果与展示</h2><h3 id="自训练算法-1"><a href="#自训练算法-1" class="headerlink" title="自训练算法"></a>自训练算法</h3><p>在这里，我们主要调整的参数就是以上代码中的 M 和 K，也就是等差数列的首项与公差。</p>
-<p>首先可以观察训练集。在 20ns 中，我们要实现的是一个 20 分类任务，训练集中共有 18314 个文本，文本的分布是不均匀的。而在 agnews 中，我们需要实现 4 分类任务，训练集中共有 40000 个文本，文本的分布是均匀的。</p>
-<p>第一步，我们需要生成伪标签。使用之前提到的方案 2，对 20ns 标记结果如下：</p>
+<h2 id="实验结果与展示">实验结果与展示</h2>
+<h3 id="自训练算法-1">自训练算法</h3>
+<p>在这里，我们主要调整的参数就是以上代码中的 M 和
+K，也就是等差数列的首项与公差。</p>
+<p>首先可以观察训练集。在 20ns 中，我们要实现的是一个 20
+分类任务，训练集中共有 18314 个文本，文本的分布是不均匀的。而在 agnews
+中，我们需要实现 4 分类任务，训练集中共有 40000
+个文本，文本的分布是均匀的。</p>
+<p>第一步，我们需要生成伪标签。使用之前提到的方案 2，对 20ns
+标记结果如下：</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\pse2.png) -->
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/pse2.png" class="" title="这是一张图片">
 <p>对 agnews 标记结果如下：</p>
@@ -966,21 +1135,31 @@ p(y=i)=\dfrac{e^{W_i}}{\sum_{k=1}^N e^{W_k}}</script><p>这样我们实现了归
 <p>agnews：</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\pse4.png) -->
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/pse4.png" class="" title="这是一张图片">
-<p>如果将所有文本都考虑进来，几乎所有不含关键词的文本都会被预测为某一类，这是由 Bag-of-Words/Tfidf 向量的特性决定的。对所有文本的结果如下：</p>
+<p>如果将所有文本都考虑进来，几乎所有不含关键词的文本都会被预测为某一类，这是由
+Bag-of-Words/Tfidf 向量的特性决定的。对所有文本的结果如下：</p>
 <p>20ns：</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\pseall1.png) -->
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/pseall1.png" class="" title="这是一张图片">
 <p>agnews：</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\pseall2.png) -->
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/pseall2.png" class="" title="这是一张图片">
-<p>我们还可以从生成伪标签这一步中看出，在 20ns 中包含关键词的文本是较多的，在 agnews 中包含关键词的文本是较少的。再加上两个训练集的大小不同，我们扩展训练集时当然不能对两个训练集一视同仁，而是要分别寻找合适的扩展个数与次数。</p>
+<p>我们还可以从生成伪标签这一步中看出，在 20ns
+中包含关键词的文本是较多的，在 agnews
+中包含关键词的文本是较少的。再加上两个训练集的大小不同，我们扩展训练集时当然不能对两个训练集一视同仁，而是要分别寻找合适的扩展个数与次数。</p>
 <p>使用<strong>逻辑回归</strong>：</p>
 <ul>
-<li>我们首先生成伪标签，具体做法是采用之前提到的方案三，也就是直接用关键词作为词向量训练分类器，然后用这个分类器去对所有的文本进行标记，在其中取出 M 个置信度较高的。</li>
+<li>我们首先生成伪标签，具体做法是采用之前提到的方案三，也就是直接用关键词作为词向量训练分类器，然后用这个分类器去对所有的文本进行标记，在其中取出
+M 个置信度较高的。</li>
 <li>对 20ns，取 M = 6000，K = 6000。</li>
 <li>对 agnews，取 M = 4500，K = 5500。</li>
-<li>Bag-of-Words模型，在20ns上准确率为 <strong>0.4866</strong>，f1_score为 <strong>0.4759</strong>（M = 4500, K = 4000）；在 agnews 上准确率为 <strong>0.7218</strong>，f1_score为 <strong>0.7126</strong>。</li>
-<li>Tfidf模型，在20ns上准确率为 <strong>0.5717</strong>，f1_score为<strong>0.5411</strong>（M = 6000, K = 6000）；在agnews上准确率为<strong>0.7250</strong>，f1_score为<strong>0.6965</strong>。</li>
+<li>Bag-of-Words模型，在20ns上准确率为
+<strong>0.4866</strong>，f1_score为 <strong>0.4759</strong>（M = 4500, K
+= 4000）；在 agnews 上准确率为 <strong>0.7218</strong>，f1_score为
+<strong>0.7126</strong>。</li>
+<li>Tfidf模型，在20ns上准确率为
+<strong>0.5717</strong>，f1_score为<strong>0.5411</strong>（M = 6000, K
+=
+6000）；在agnews上准确率为<strong>0.7250</strong>，f1_score为<strong>0.6965</strong>。</li>
 </ul>
 <p>我们使用 Tfidf 时的混淆矩阵分别如下：</p>
 <p>20ns：</p>
@@ -991,27 +1170,35 @@ p(y=i)=\dfrac{e^{W_i}}{\sum_{k=1}^N e^{W_k}}</script><p>这样我们实现了归
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/matb.png" class="" title="这是一张图片">
 <p>下面我们对结果进行分析：</p>
 <ul>
-<li><p>模型在每个类上的准确率相当不均衡。以 agnews 为例，其在第 2 类上只有 26.13% 的准确率，而其他三类都达到了 80% 以上。然而在使用 Bag-of-Words 时，这个现象相对没有那么明显，如下图：</p>
+<li><p>模型在每个类上的准确率相当不均衡。以 agnews 为例，其在第 2
+类上只有 26.13% 的准确率，而其他三类都达到了 80% 以上。然而在使用
+Bag-of-Words 时，这个现象相对没有那么明显，如下图：</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\matcnt.png) -->
-<img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/matcnt.png" class="" title="这是一张图片">
-</li>
-</ul>
-<ul>
-<li>在 20 分类任务中，这种不均衡带来对准确率的影响时要比 4 分类任务要小的。</li>
-<li>我们在初始利用关键词生成伪标签时，准确率分别为 61.20% 与 79.06%。整体上来看，模型最终的准确率接近这两个值，可以说明我们自训练过程的合理性。</li>
-<li>我们期望在自训练过程中，准确率是能够逐步上升的，想要做到这一点就需要精确控制我们每次迭代加入训练集的数据个数。即使经过了调参，模型在最后一步增加训练集时还是出现了准确率下降的现象。笔者对此的解释是，我们终止的条件是所有数据都被加入了训练集，最后加入的数据可能预测错误的样本数相对较多。但在此之前，我们的准确率都是稳步上升的。</li>
+<img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/matcnt.png" class="" title="这是一张图片"></li>
+<li><p>在 20 分类任务中，这种不均衡带来对准确率的影响时要比 4
+分类任务要小的。</p></li>
+<li><p>我们在初始利用关键词生成伪标签时，准确率分别为 61.20% 与
+79.06%。整体上来看，模型最终的准确率接近这两个值，可以说明我们自训练过程的合理性。</p></li>
+<li><p>我们期望在自训练过程中，准确率是能够逐步上升的，想要做到这一点就需要精确控制我们每次迭代加入训练集的数据个数。即使经过了调参，模型在最后一步增加训练集时还是出现了准确率下降的现象。笔者对此的解释是，我们终止的条件是所有数据都被加入了训练集，最后加入的数据可能预测错误的样本数相对较多。但在此之前，我们的准确率都是稳步上升的。</p></li>
 </ul>
 <p>使用 CNN：</p>
 <ul>
 <li>在 20ns 上准确率为 48.29%</li>
 <li>在 agnews 上准确率为 69.95%</li>
 </ul>
-<p>似乎 CNN 在这个任务中的表现还不如更为简单的逻辑回归。但这可能是因为我还没有花很多的时间去调参，甚至有可能是因为迭代的次数不够。</p>
-<h3 id="未知类别识别"><a href="#未知类别识别" class="headerlink" title="未知类别识别"></a>未知类别识别</h3><p>这里我们使用的策略是基于置信度的拒绝。我们还是按照之前的自训练方法进行训练，将预测置信度低于某个阈值的文本预测为未知类别。</p>
-<p>首先看这个方法在 agnews 上的结果。我们迭代 4 次停止训练，得到的准确率为 <strong>0.5908</strong>，f1_score 为 <strong>0.5816</strong>。如果我们不进行未知类别识别，准确率为 <strong>0.5711</strong>，未知类型识别带来了接近 2% 的提升。</p>
+<p>似乎 CNN
+在这个任务中的表现还不如更为简单的逻辑回归。但这可能是因为我还没有花很多的时间去调参，甚至有可能是因为迭代的次数不够。</p>
+<h3 id="未知类别识别">未知类别识别</h3>
+<p>这里我们使用的策略是基于置信度的拒绝。我们还是按照之前的自训练方法进行训练，将预测置信度低于某个阈值的文本预测为未知类别。</p>
+<p>首先看这个方法在 agnews 上的结果。我们迭代 4
+次停止训练，得到的准确率为 <strong>0.5908</strong>，f1_score 为
+<strong>0.5816</strong>。如果我们不进行未知类别识别，准确率为
+<strong>0.5711</strong>，未知类型识别带来了接近 2% 的提升。</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\mat2_unk.png) -->
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/mat2_unk.png" class="" title="这是一张图片">
-<p>在 20ns 上，准确率为 <strong>0.4921</strong>，f1_score 为 <strong>0.4986</strong>。如果不进行未知类别识别，准确率为 <strong>0.4838</strong>。</p>
+<p>在 20ns 上，准确率为 <strong>0.4921</strong>，f1_score 为
+<strong>0.4986</strong>。如果不进行未知类别识别，准确率为
+<strong>0.4838</strong>。</p>
 <!-- ![](D:\桌面\大二下\Artificial Intelligence\hw\project\mat1_unk.png) -->
 <img src="/2023/07/11/%E5%BC%B1%E7%9B%91%E7%9D%A3%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/mat1_unk.png" class="" title="这是一张图片">
 <p>观察混淆矩阵，未知类别的召回率和精确率都不是很高，另外在前面提到的准确率不均衡的问题也仍然存在。总体来说，在未知类型识别任务上，此模型表现不是很好。我有一些继续优化模型的想法，但由于时间关系没有去尝试：</p>
@@ -1020,9 +1207,14 @@ p(y=i)=\dfrac{e^{W_i}}{\sum_{k=1}^N e^{W_k}}</script><p>这样我们实现了归
 <li>在将数据加入训练集时，考虑将某些预测置信度低的样本标记为未知类别，一并加入训练集。</li>
 <li>进一步调整阈值。如果阈值过小，会导致未知类别预测的召回率过低；如果阈值过大，会导致未知类别的精确率过低。找到一个合适的阈值是这个任务中比较困难的一个环节。</li>
 </ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349107869">半监督学习 - 知乎 (zhihu.com)</a></li>
-<li><a target="_blank" rel="noopener" href="http://ai.stanford.edu/blog/understanding-self-training/">Understanding Deep Learning Algorithms that Leverage Unlabeled Data, partial 1: Self-training | SAIL Blog (stanford.edu)</a></li>
+<h2 id="参考资料">参考资料</h2>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349107869">半监督学习 - 知乎
+(zhihu.com)</a></li>
+<li><a
+target="_blank" rel="noopener" href="http://ai.stanford.edu/blog/understanding-self-training/">Understanding
+Deep Learning Algorithms that Leverage Unlabeled Data, partial 1:
+Self-training | SAIL Blog (stanford.edu)</a></li>
 </ol>
 
       
@@ -1108,46 +1300,71 @@ p(y=i)=\dfrac{e^{W_i}}{\sum_{k=1}^N e^{W_k}}</script><p>这样我们实现了归
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>若 $D$ 不为完全平方数，形如</p>
-<script type="math/tex; mode=display">
-x^2-Dy^2=1</script><p>的方程称为为佩尔方程。</p>
-<p>如果 $(x_1,y_1)$, $(x_2,y_2)$ 都为 $x^2-Dy^2=1$ 的一组整数解，那么</p>
-<script type="math/tex; mode=display">
+          <h2 id="原理">原理</h2>
+<p>若 <span class="math inline">\(D\)</span> 不为完全平方数，形如 <span
+class="math display">\[
+x^2-Dy^2=1
+\]</span> 的方程称为为佩尔方程。</p>
+<p>如果 <span class="math inline">\((x_1,y_1)\)</span>, <span
+class="math inline">\((x_2,y_2)\)</span> 都为 <span
+class="math inline">\(x^2-Dy^2=1\)</span> 的一组整数解，那么 <span
+class="math display">\[
 \begin{aligned}
-X&=x_1x_2+Dy_1y_2\\\\
-Y&=x_1y_2+x_2y_1
-\end{aligned}</script><p>也是方程的一组整数解。这可以直接代回原方程来验证。</p>
-<p>推广：对于方程</p>
-<script type="math/tex; mode=display">
-x^2-Dy^2=k</script><p>我们考虑与其对应的方程：</p>
-<script type="math/tex; mode=display">
-x^2-Dy^2=1</script><p>解得该方程的解 $(r,s)$，那么原方程的解 $(p,q)$ 形式如下：</p>
-<script type="math/tex; mode=display">
-(pr\pm Dqs,ps\pm qr)</script><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>求满足</p>
-<script type="math/tex; mode=display">
-\sqrt{5n^2+4}=k</script><p>的所有正整数解。</p>
-<script type="math/tex; mode=display">
-\sqrt{5n^2+4}=k</script><p>对应佩尔方程</p>
-<script type="math/tex; mode=display">
-x^2-5y^2=4</script><p>我们要求上式中的 $y$。我们观察到</p>
-<script type="math/tex; mode=display">
-x^2-5y^2=1</script><p>的最小正整数解为 $(9,4)$。</p>
-<p>于是该方程中所有的解满足：</p>
-<script type="math/tex; mode=display">
-(x+\sqrt5y)(x-\sqrt5y)=(9^2-5\times 4^2)^n=(9+4\sqrt5)^n(9-4\sqrt5)^n=1\\</script><script type="math/tex; mode=display">
+X&amp;=x_1x_2+Dy_1y_2\\\\
+Y&amp;=x_1y_2+x_2y_1
+\end{aligned}
+\]</span> 也是方程的一组整数解。这可以直接代回原方程来验证。</p>
+<p>推广：对于方程 <span class="math display">\[
+x^2-Dy^2=k
+\]</span> 我们考虑与其对应的方程： <span class="math display">\[
+x^2-Dy^2=1
+\]</span> 解得该方程的解 <span
+class="math inline">\((r,s)\)</span>，那么原方程的解 <span
+class="math inline">\((p,q)\)</span> 形式如下： <span
+class="math display">\[
+(pr\pm Dqs,ps\pm qr)
+\]</span></p>
+<h2 id="应用">应用</h2>
+<p>求满足 <span class="math display">\[
+\sqrt{5n^2+4}=k
+\]</span></p>
+<p>的所有正整数解。</p>
+<p><span class="math display">\[
+\sqrt{5n^2+4}=k
+\]</span></p>
+<p>对应佩尔方程 <span class="math display">\[
+x^2-5y^2=4
+\]</span> 我们要求上式中的 <span
+class="math inline">\(y\)</span>。我们观察到 <span
+class="math display">\[
+x^2-5y^2=1
+\]</span> 的最小正整数解为 <span
+class="math inline">\((9,4)\)</span>。</p>
+<p>于是该方程中所有的解满足： <span class="math display">\[
+(x+\sqrt5y)(x-\sqrt5y)=(9^2-5\times
+4^2)^n=(9+4\sqrt5)^n(9-4\sqrt5)^n=1\\
+\]</span></p>
+<p><span class="math display">\[
 x_n=9x_{n-1}\pm20y_{n-1}\\\\
-y_n=4x_{n-1}\pm9y_{n-1}</script><p>于是</p>
-<script type="math/tex; mode=display">
+y_n=4x_{n-1}\pm9y_{n-1}
+\]</span></p>
+<p>于是 <span class="math display">\[
 x_n=\dfrac{(9+4\sqrt5)^n+(9-4\sqrt5)^n}{2}\\\\
-y_n=\dfrac{(9+4\sqrt5)^n-(9-4\sqrt5)^n}{2\sqrt{5}}</script><p>取 $r_n=x_n,s_n=y_n$</p>
-<p>原方程的最小正整数解为 $(3,1)$</p>
-<p>于是原方程的解满足</p>
-<script type="math/tex; mode=display">
+y_n=\dfrac{(9+4\sqrt5)^n-(9-4\sqrt5)^n}{2\sqrt{5}}
+\]</span> 取 <span class="math inline">\(r_n=x_n,s_n=y_n\)</span></p>
+<p>原方程的最小正整数解为 <span class="math inline">\((3,1)\)</span></p>
+<p>于是原方程的解满足 <span class="math display">\[
 x_n=3r_n\pm 5s_n\\\\
-y_n=3s_n\pm r_n</script><p>于是我们有</p>
-<script type="math/tex; mode=display">
-y_n=3\dfrac{(9+4\sqrt5)^n+(9-4\sqrt5)^n}{2}+\dfrac{(9+4\sqrt5)^n-(9-4\sqrt5)^n}{2\sqrt{5}}</script><p>不想化简这个式子，但这大概是猜不出这道题最简单的解法的情况下最好的做法了。</p>
-<p>不过可以观察得到，序列 $y_n$ 为 $\{1,3,8,21,…\}$，对比斐波那契数列 $\{1,1,2,3,5,8,13, 21\}$，发现 $y_n$ 就是斐波那契数列的偶数项，这题就做完了。</p>
+y_n=3s_n\pm r_n
+\]</span> 于是我们有 <span class="math display">\[
+y_n=3\dfrac{(9+4\sqrt5)^n+(9-4\sqrt5)^n}{2}+\dfrac{(9+4\sqrt5)^n-(9-4\sqrt5)^n}{2\sqrt{5}}
+\]</span></p>
+<p>不想化简这个式子，但这大概是猜不出这道题最简单的解法的情况下最好的做法了。</p>
+<p>不过可以观察得到，序列 <span class="math inline">\(y_n\)</span> 为
+<span class="math inline">\(\{1,3,8,21,...\}\)</span>，对比斐波那契数列
+<span class="math inline">\(\{1,1,2,3,5,8,13, 21\}\)</span>，发现 <span
+class="math inline">\(y_n\)</span>
+就是斐波那契数列的偶数项，这题就做完了。</p>
 
       
     </div>
@@ -1226,63 +1443,89 @@ y_n=3\dfrac{(9+4\sqrt5)^n+(9-4\sqrt5)^n}{2}+\dfrac{(9+4\sqrt5)^n-(9-4\sqrt5)^n}{
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="知识图谱与FOIL"><a href="#知识图谱与FOIL" class="headerlink" title="知识图谱与FOIL"></a>知识图谱与FOIL</h1><h2 id="实验题目"><a href="#实验题目" class="headerlink" title="实验题目"></a>实验题目</h2><ul>
-<li>编写程序，实现 FOIL（First Order Inductive Learner）算法，对如下给定的知识图谱和目标谓词进行规则学习，并得到新的以目标谓词为关系的事实（用一阶逻辑表示）。<ul>
-<li>给定的知识图谱所有三元组的一阶逻辑如下：<ul>
-<li>$Father(Jack,Dell)$</li>
-<li>$Father(Dell,Stephen)$</li>
-<li>$Grandfather(Jack,Stephen)$</li>
-<li>$Father(Dell,Seth)$</li>
+          <h1 id="知识图谱与foil">知识图谱与FOIL</h1>
+<h2 id="实验题目">实验题目</h2>
+<ul>
+<li>编写程序，实现 FOIL（First Order Inductive
+Learner）算法，对如下给定的知识图谱和目标谓词进行规则学习，并得到新的以目标谓词为关系的事实（用一阶逻辑表示）。
+<ul>
+<li>给定的知识图谱所有三元组的一阶逻辑如下：
+<ul>
+<li><span class="math inline">\(Father(Jack,Dell)\)</span></li>
+<li><span class="math inline">\(Father(Dell,Stephen)\)</span></li>
+<li><span class="math inline">\(Grandfather(Jack,Stephen)\)</span></li>
+<li><span class="math inline">\(Father(Dell,Seth)\)</span></li>
+</ul></li>
+<li>目标谓词：
+<ul>
+<li><span class="math inline">\(Grandfather(x,y)\)</span></li>
+</ul></li>
+</ul></li>
+<li>要求的输入输出模式如下：
+<ul>
+<li>输入格式
+<ul>
+<li>第 <span class="math inline">\(1\)</span> 行：知识图谱的三元组数目
+<span class="math inline">\(n\)</span></li>
+<li>第 <span class="math inline">\(2 \sim
+(n+1)\)</span>行：三元组的一阶逻辑表示，例如 <span
+class="math inline">\(L(David,Mike)\)</span></li>
+<li>第 <span class="math inline">\((n+2)\)</span> 行：目标谓词，即 <span
+class="math inline">\(Grandfather(x,y)\)</span></li>
+</ul></li>
+<li>输出格式
+<ul>
+<li>第 <span class="math inline">\(1\)</span>
+行：以目标谓词和前提约束谓词组成的规则推理，例如： <span
+class="math inline">\(Mother(z, y) \wedge Couple(x,z)\rightarrow
+Father(x, y)\)</span></li>
+<li>第2行及以后：每一行输出一条推理所得事实，用一阶逻辑表示，例如 <span
+class="math inline">\(H(David,Ann)\)</span></li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-<li>目标谓词：<ul>
-<li>$Grandfather(x,y)$</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>要求的输入输出模式如下：<ul>
-<li>输入格式<ul>
-<li>第 $1$ 行：知识图谱的三元组数目 $n$</li>
-<li>第 $2 \sim (n+1)$行：三元组的一阶逻辑表示，例如 $L(David,Mike)$</li>
-<li>第 $(n+2)$ 行：目标谓词，即 $Grandfather(x,y)$</li>
-</ul>
-</li>
-<li>输出格式<ul>
-<li>第 $1$ 行：以目标谓词和前提约束谓词组成的规则推理，例如： $Mother(z, y) \wedge Couple(x,z)\rightarrow Father(x, y)$</li>
-<li>第2行及以后：每一行输出一条推理所得事实，用一阶逻辑表示，例如 $H(David,Ann)$</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><h3 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h3><p>知识图谱是一种包含多种关系的图。任一节点是一个实体，任一条边表示两个节点之间的关系。</p>
+<h2 id="算法原理">算法原理</h2>
+<h3 id="知识图谱">知识图谱</h3>
+<p>知识图谱是一种包含多种关系的图。任一节点是一个实体，任一条边表示两个节点之间的关系。</p>
 <p>对于知识图谱的任意两个相连节点以及连接的边，可以用三元组表示为一阶逻辑。</p>
 <p>从知识图谱中，可以归纳推理得到新的知识。</p>
-<h3 id="归纳学习-FOIL"><a href="#归纳学习-FOIL" class="headerlink" title="归纳学习 - FOIL"></a>归纳学习 - FOIL</h3><p>我们使用 FOIL (First Order Inductive Learning) 算法来进行归纳推理。</p>
+<h3 id="归纳学习---foil">归纳学习 - FOIL</h3>
+<p>我们使用 FOIL (First Order Inductive Learning)
+算法来进行归纳推理。</p>
 <p>根据给定的目标谓词，我们可以从知识图谱中提取出：</p>
 <ul>
 <li>正例，也就是目标谓词的实例化结果</li>
 <li>反例，若两个实体的关系一定与目标谓词相悖</li>
 <li>背景知识，目标谓词以外的其他谓词实例化结果</li>
 </ul>
-<p>我们给目标谓词加上若干前提约束谓词，直到推理规则不覆盖任何反例。增加前提后，对目标谓词或前提约束谓词中的变量依<br>据背景知识赋予具体值，可以得到其正例与反例数量。</p>
-<p>我们引入信息量的概念：</p>
-<script type="math/tex; mode=display">
-I(x)=-\log p(x)</script><p>其中 $p(x)$ 为取事件 $x$ 的概率。</p>
-<p>在增加前提约束谓词中，由信息量的公式，可以计算 FOIL 信息增益</p>
-<script type="math/tex; mode=display">
-\text{FOIL_Gain}=\hat{m}_{+}(\log_2\dfrac{\hat{m}_+}{\hat{m}_++\hat{m}_-}-\log_2\dfrac{m_+}{m_++m_-})</script><p>其中 $\hat{m}_+$ 与 $\hat{m}_-$ 为增加前提约束谓词的规则后所覆盖的正例与反例数量，$m_+$ 与 $m_-$ 是原推理规则所覆盖的正例与反例数量。</p>
+<p>我们给目标谓词加上若干前提约束谓词，直到推理规则不覆盖任何反例。增加前提后，对目标谓词或前提约束谓词中的变量依
+据背景知识赋予具体值，可以得到其正例与反例数量。</p>
+<p>我们引入信息量的概念： <span class="math display">\[
+I(x)=-\log p(x)
+\]</span> 其中 <span class="math inline">\(p(x)\)</span> 为取事件 <span
+class="math inline">\(x\)</span> 的概率。</p>
+<p>在增加前提约束谓词中，由信息量的公式，可以计算 FOIL 信息增益 <span
+class="math display">\[
+\text{FOIL_Gain}=\hat{m}_{+}(\log_2\dfrac{\hat{m}_+}{\hat{m}_++\hat{m}_-}-\log_2\dfrac{m_+}{m_++m_-})
+\]</span> 其中 <span class="math inline">\(\hat{m}_+\)</span> 与 <span
+class="math inline">\(\hat{m}_-\)</span>
+为增加前提约束谓词的规则后所覆盖的正例与反例数量，<span
+class="math inline">\(m_+\)</span> 与 <span
+class="math inline">\(m_-\)</span>
+是原推理规则所覆盖的正例与反例数量。</p>
 <p>选取使信息增益最大的前提约束谓词，并重复该过程，直到推理规则覆盖训练样本集合中正例，不覆盖任意反例。</p>
 <p>整个算法的流程如下：</p>
-<ol>
+<ol type="1">
 <li>从知识图谱中提取正例，反例，背景知识。</li>
 <li>依次将谓词加入到推理规则中作为前提约束谓词。</li>
 <li>计算加入前提后的 FOIL 信息增益。</li>
 <li>选取使信息增益最大的前提约束谓词，加入推理规则。</li>
 <li>重复 2~4，直到推理规则覆盖训练样本集合中正例，不覆盖任意反例。</li>
 </ol>
-<p>下面的代码是实现 FOIL 算法的主要代码。对于每个前提约束谓词，尝试将其加入到现有规则中，并计算 $\text{FOIL_GAIN}$，选择使信息增益最大的前提约束谓词，将其加入现有规则，并重复这一过程直到规则覆盖所有正例，并不覆盖任何负例。</p>
+<p>下面的代码是实现 FOIL
+算法的主要代码。对于每个前提约束谓词，尝试将其加入到现有规则中，并计算
+<span
+class="math inline">\(\text{FOIL_GAIN}\)</span>，选择使信息增益最大的前提约束谓词，将其加入现有规则，并重复这一过程直到规则覆盖所有正例，并不覆盖任何负例。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">getPres</span>(<span class="params">res, sentences, prem, added</span>):</span><br><span class="line">    <span class="comment"># get the reasoning result</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        maxgain = -<span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">        maxprem = sentence(<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">        mpos, mneg = getPosAndNeg(res, sentences, added)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> prem:</span><br><span class="line">            <span class="comment"># find the premise with largest FOIL_GAIN</span></span><br><span class="line">            added.append(i) <span class="comment"># add i into premises</span></span><br><span class="line">            newpos, newneg = getPosAndNeg(res, sentences, added) <span class="comment"># get \hat&#123;m&#125;_+ and \hat&#123;m&#125;_-</span></span><br><span class="line">            gain = informationGain(mpos, mneg, newpos, newneg) <span class="comment"># calculate FOIL_GAIN</span></span><br><span class="line">            <span class="keyword">if</span> gain &gt; maxgain:</span><br><span class="line">                maxgain = gain</span><br><span class="line">                maxprem = i</span><br><span class="line">            added.remove(i)</span><br><span class="line">        added.append(maxprem)</span><br><span class="line">        prem.remove(maxprem)</span><br><span class="line">        newpos, newneg = getPosAndNeg(res, sentences, added)</span><br><span class="line">        <span class="keyword">if</span> newpos == mpos <span class="keyword">and</span> newneg == <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># if any negative example is not covered and all positive examples are covered</span></span><br><span class="line">            <span class="keyword">return</span> added          </span><br><span class="line">    <span class="keyword">return</span> added</span><br></pre></td></tr></table></figure>
 
       
@@ -1368,20 +1611,32 @@ I(x)=-\log p(x)</script><p>其中 $p(x)$ 为取事件 $x$ 的概率。</p>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="从最长公共子序列开始"><a href="#从最长公共子序列开始" class="headerlink" title="从最长公共子序列开始"></a>从最长公共子序列开始</h1><h2 id="1-最长公共子序列"><a href="#1-最长公共子序列" class="headerlink" title="1. 最长公共子序列"></a>1. 最长公共子序列</h2><p>字符串 $s$ 的子序列是从中取出若干元素而不改变其相对位置的序列，求 $A$ 和 $B$ 的最长子序列长度。</p>
-<p>设<code>f[i][j]</code>是只考虑 $A$ 前i个元素，$B$ 前j个元素的最长公共子序列的长度，则</p>
-<ol>
-<li>若 $A[i]=B[j]$，可以接到公共子序列末尾；</li>
-<li>否则跳过 $A[i]$ 或 $B[j]$。</li>
+          <h1 id="从最长公共子序列开始">从最长公共子序列开始</h1>
+<h2 id="最长公共子序列">1. 最长公共子序列</h2>
+<p>字符串 <span class="math inline">\(s\)</span>
+的子序列是从中取出若干元素而不改变其相对位置的序列，求 <span
+class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 的最长子序列长度。</p>
+<p>设<code>f[i][j]</code>是只考虑 <span class="math inline">\(A\)</span>
+前i个元素，<span class="math inline">\(B\)</span>
+前j个元素的最长公共子序列的长度，则</p>
+<ol type="1">
+<li>若 <span
+class="math inline">\(A[i]=B[j]\)</span>，可以接到公共子序列末尾；</li>
+<li>否则跳过 <span class="math inline">\(A[i]\)</span> 或 <span
+class="math inline">\(B[j]\)</span>。</li>
 </ol>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 f[i][j]=\begin{cases}
 f[i-1][j-1]+1,\ A[i]=B[j],\\\\
 max(f[i-1][j], f[i][j-1]),\ A[i]\neq B[j].
-\end{cases}</script><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a[maxn];</span><br><span class="line"><span class="type">char</span> b[maxn];</span><br><span class="line"><span class="type">int</span> dp[maxn][maxn];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lcs</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="built_in">strlen</span>(a);</span><br><span class="line">    <span class="type">int</span> m = <span class="built_in">strlen</span>(b);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] == b[j])&#123;</span><br><span class="line">                dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                dp[i][j] = std::<span class="built_in">max</span>(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-最长不下降子序列"><a href="#2-最长不下降子序列" class="headerlink" title="2. 最长不下降子序列"></a>2. 最长不下降子序列</h2><p>$O(n^2)$ 做法：</p>
+\end{cases}
+\]</span></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a[maxn];</span><br><span class="line"><span class="type">char</span> b[maxn];</span><br><span class="line"><span class="type">int</span> dp[maxn][maxn];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lcs</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="built_in">strlen</span>(a);</span><br><span class="line">    <span class="type">int</span> m = <span class="built_in">strlen</span>(b);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] == b[j])&#123;</span><br><span class="line">                dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                dp[i][j] = std::<span class="built_in">max</span>(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最长不下降子序列">2. 最长不下降子序列</h2>
+<p><span class="math inline">\(O(n^2)\)</span> 做法：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">lis</span><span class="params">()</span></span>&#123;</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">        dp[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j] &lt;= a[i])&#123;</span><br><span class="line">                dp[i] = std::<span class="built_in">max</span>(dp[i], dp[j] + <span class="number">1</span>);</span><br><span class="line">                ans = <span class="built_in">max</span>(ans, dp[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>$O(n\log n)$ 做法：</p>
+<p><span class="math inline">\(O(n\log n)\)</span> 做法：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">memset</span>(dp, <span class="number">0x1f</span>, <span class="keyword">sizeof</span> dp);</span><br><span class="line">mx = dp[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">  *std::<span class="built_in">upper_bound</span>(dp, dp + n, a[i]) = a[i];</span><br><span class="line">&#125;</span><br><span class="line">ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (dp[ans] != mx) ++ans;</span><br></pre></td></tr></table></figure>
 
       
@@ -1461,24 +1716,37 @@ max(f[i-1][j], f[i][j-1]),\ A[i]\neq B[j].
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="一道二分"><a href="#一道二分" class="headerlink" title="一道二分"></a>一道二分</h1><p>Given two sorted arrays <code>nums1</code> and <code>nums2</code> of size <code>m</code> and <code>n</code> respectively, return <strong>the median</strong> of the two sorted arrays.</p>
-<p>The overall run time complexity should be $O(\log (m+n))$.</p>
+          <h1 id="一道二分">一道二分</h1>
+<p>Given two sorted arrays <code>nums1</code> and <code>nums2</code> of
+size <code>m</code> and <code>n</code> respectively, return <strong>the
+median</strong> of the two sorted arrays.</p>
+<p>The overall run time complexity should be <span
+class="math inline">\(O(\log (m+n))\)</span>.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> Comparable <span class="type">int</span>;</span><br><span class="line"><span class="function">Comparable <span class="title">find_median</span><span class="params">(<span class="type">const</span> vector&lt;Comparable&gt; &amp;l1, <span class="type">const</span> vector&lt;Comparable&gt; &amp;l2)</span></span></span><br><span class="line"><span class="function"><span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="function">Pre:  The ordered lists l1,l2 are not all empty.</span></span></span><br><span class="line"><span class="comment"><span class="function">Post: The median of the two lists combined in order is returned. If the size of the merged list is even, then the first of the two medians is returned. For exmaple, l1 =(1,2), l2=(1,3,4,5), then 2 is returned.</span></span></span><br><span class="line"><span class="comment"><span class="function">*/</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>find the $k$th min number, where:</p>
-<script type="math/tex; mode=display">
+<h2 id="solution">Solution</h2>
+<p>find the <span class="math inline">\(k\)</span>th min number, where:
+<span class="math display">\[
 k = \begin{cases}
 \dfrac{m+n}{2},\ \text{when}\ m+n\ \text{is even},\\\\
 \dfrac{m+n+1}{2},\ \text{when}\ m+n\ \text{is odd}.
-\end{cases}</script><p>To find the number, compare $A[k/2-1]$ and $B[k/2-1]$:</p>
+\end{cases}
+\]</span> To find the number, compare <span
+class="math inline">\(A[k/2-1]\)</span> and <span
+class="math inline">\(B[k/2-1]\)</span>:</p>
 <ul>
-<li>if $A[k/2-1] \leq B[k/2-1]$, remove $A[0:k/2-1]$,</li>
-<li>if $A[k/2-1] &gt; B[k/2-1]$, remove $B[0:k/2-1]$.</li>
+<li>if <span class="math inline">\(A[k/2-1] \leq B[k/2-1]\)</span>,
+remove <span class="math inline">\(A[0:k/2-1]\)</span>,</li>
+<li>if <span class="math inline">\(A[k/2-1] &gt; B[k/2-1]\)</span>,
+remove <span class="math inline">\(B[0:k/2-1]\)</span>.</li>
 </ul>
 <p>and some cases:</p>
 <ul>
-<li>if $A[k/2-1]$ or $B[k/2-1]$ is out of bound, choose the last element of the array.</li>
+<li>if <span class="math inline">\(A[k/2-1]\)</span> or <span
+class="math inline">\(B[k/2-1]\)</span> is out of bound, choose the last
+element of the array.</li>
 <li>if an array is empty, find the kth min number in the other.</li>
-<li>if $k=1$, return $\min(A[0], B[0])$</li>
+<li>if <span class="math inline">\(k=1\)</span>, return <span
+class="math inline">\(\min(A[0], B[0])\)</span></li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">getK</span><span class="params">(<span class="type">const</span> vector&lt;Comparable&gt; &amp;l1, <span class="type">const</span> vector&lt;Comparable&gt; &amp;l2, <span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> i1 = <span class="number">0</span>, i2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i1 == l1.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="keyword">return</span> l2[i2 + k - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i2 == l2.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="keyword">return</span> l1[i1 + k - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">min</span>(l1[i1], l2[i2]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> p1 = <span class="built_in">min</span>(i1 + k / <span class="number">2</span> - <span class="number">1</span>, (<span class="type">int</span>)l1.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">        <span class="type">int</span> p2 = <span class="built_in">min</span>(i2 + k / <span class="number">2</span> - <span class="number">1</span>, (<span class="type">int</span>)l2.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(l1[p1] &lt;= l2[p2])&#123;</span><br><span class="line">            k -= p1 - i1 + <span class="number">1</span>;</span><br><span class="line">            i1 = p1 + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            k -= p2 - i2 + <span class="number">1</span>;</span><br><span class="line">            i2 = p2 + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Comparable <span class="title">find_median</span><span class="params">(<span class="type">const</span> vector&lt;Comparable&gt; &amp;l1, <span class="type">const</span> vector&lt;Comparable&gt; &amp;l2)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> l = l1.<span class="built_in">size</span>() + l2.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">if</span>(l%<span class="number">2</span> == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">getK</span>(l1, l2, (l + <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">getK</span>(l1, l2, l / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="什么是等变性设 $T_g:X\to X$ 是 $g\in G$ 上的 transformation，$\phi:X\to Y$ 是一个函数，若存在 $S_g:Y\to Y$ 使得  \phi(T_g(x))&#x3D;S_g(\phi(x)) 则称 $\phi$ 对于 $g$ 等变。 若  \phi(T_g(x))&#x3D;\phi(x)则 $\phi$ 对于 $g$ 不变。 为什么要有等变性思考分子有关的问题时，">
+    <meta name="description" content="什么是等变性 设 \(T_g:X\to X\) 是 \(g\in G\) 上的 transformation，\(\phi:X\to Y\) 是一个函数，若存在 \(S_g:Y\to Y\) 使得 \[ \phi(T_g(x))&#x3D;S_g(\phi(x)) \] 则称 \(\phi\) 对于 \(g\) 等变。 若 \[ \phi(T_g(x))&#x3D;\phi(x) \] 则 \(\phi\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="等变性">
 <meta property="og:url" content="http://example.com/2024/12/10/%E7%AD%89%E5%8F%98%E6%80%A7/index.html">
 <meta property="og:site_name" content="Megaee的小屋">
-<meta property="og:description" content="什么是等变性设 $T_g:X\to X$ 是 $g\in G$ 上的 transformation，$\phi:X\to Y$ 是一个函数，若存在 $S_g:Y\to Y$ 使得  \phi(T_g(x))&#x3D;S_g(\phi(x)) 则称 $\phi$ 对于 $g$ 等变。 若  \phi(T_g(x))&#x3D;\phi(x)则 $\phi$ 对于 $g$ 不变。 为什么要有等变性思考分子有关的问题时，">
+<meta property="og:description" content="什么是等变性 设 \(T_g:X\to X\) 是 \(g\in G\) 上的 transformation，\(\phi:X\to Y\) 是一个函数，若存在 \(S_g:Y\to Y\) 使得 \[ \phi(T_g(x))&#x3D;S_g(\phi(x)) \] 则称 \(\phi\) 对于 \(g\) 等变。 若 \[ \phi(T_g(x))&#x3D;\phi(x) \] 则 \(\phi\">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-12-10T13:53:01.000Z">
 <meta property="article:modified_time" content="2024-12-11T11:38:47.714Z">
@@ -118,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%AD%89%E5%8F%98%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">什么是等变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E7%AD%89%E5%8F%98%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">为什么要有等变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%BE%A4%E7%9A%84%E5%90%8D%E5%AD%97"><span class="nav-number">3.</span> <span class="nav-text">一些群的名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%AD%89%E5%8F%98%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">如何保证等变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EGNN"><span class="nav-number">5.</span> <span class="nav-text">EGNN</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%AD%89%E5%8F%98%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">什么是等变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E7%AD%89%E5%8F%98%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">为什么要有等变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%BE%A4%E7%9A%84%E5%90%8D%E5%AD%97"><span class="nav-number">3.</span> <span class="nav-text">一些群的名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%AD%89%E5%8F%98%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">如何保证等变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#egnn"><span class="nav-number">5.</span> <span class="nav-text">EGNN</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -231,46 +231,52 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="什么是等变性"><a href="#什么是等变性" class="headerlink" title="什么是等变性"></a>什么是等变性</h2><p>设 $T_g:X\to X$ 是 $g\in G$ 上的 transformation，$\phi:X\to Y$ 是一个函数，若存在 $S_g:Y\to Y$ 使得</p>
-<script type="math/tex; mode=display">
-\phi(T_g(x))=S_g(\phi(x))</script><p> 则称 $\phi$ 对于 $g$ 等变。</p>
-<p>若</p>
-<script type="math/tex; mode=display">
-\phi(T_g(x))=\phi(x)</script><p>则 $\phi$ 对于 $g$ 不变。</p>
-<h2 id="为什么要有等变性"><a href="#为什么要有等变性" class="headerlink" title="为什么要有等变性"></a>为什么要有等变性</h2><p>思考分子有关的问题时，我们通常将原子建模成图的节点，化学键建模为图的边。考虑几个简单的分子性质，如势能和原子受力。</p>
-<div class="table-container">
+        <h2 id="什么是等变性">什么是等变性</h2>
+<p>设 <span class="math inline">\(T_g:X\to X\)</span> 是 <span
+class="math inline">\(g\in G\)</span> 上的 transformation，<span
+class="math inline">\(\phi:X\to Y\)</span> 是一个函数，若存在 <span
+class="math inline">\(S_g:Y\to Y\)</span> 使得 <span
+class="math display">\[
+\phi(T_g(x))=S_g(\phi(x))
+\]</span> 则称 <span class="math inline">\(\phi\)</span> 对于 <span
+class="math inline">\(g\)</span> 等变。</p>
+<p>若 <span class="math display">\[
+\phi(T_g(x))=\phi(x)
+\]</span> 则 <span class="math inline">\(\phi\)</span> 对于 <span
+class="math inline">\(g\)</span> 不变。</p>
+<h2 id="为什么要有等变性">为什么要有等变性</h2>
+<p>思考分子有关的问题时，我们通常将原子建模成图的节点，化学键建模为图的边。考虑几个简单的分子性质，如势能和原子受力。</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">势能</th>
-<th style="text-align:center">受力</th>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">势能</th>
+<th style="text-align: center;">受力</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">平移</td>
-<td style="text-align:center">不变</td>
-<td style="text-align:center">不变</td>
+<tr class="odd">
+<td style="text-align: center;">平移</td>
+<td style="text-align: center;">不变</td>
+<td style="text-align: center;">不变</td>
 </tr>
-<tr>
-<td style="text-align:center">旋转</td>
-<td style="text-align:center">不变</td>
-<td style="text-align:center">改变</td>
+<tr class="even">
+<td style="text-align: center;">旋转</td>
+<td style="text-align: center;">不变</td>
+<td style="text-align: center;">改变</td>
 </tr>
-<tr>
-<td style="text-align:center">置换</td>
-<td style="text-align:center">不变</td>
-<td style="text-align:center">改变</td>
+<tr class="odd">
+<td style="text-align: center;">置换</td>
+<td style="text-align: center;">不变</td>
+<td style="text-align: center;">改变</td>
 </tr>
-<tr>
-<td style="text-align:center">镜面对称/手性</td>
-<td style="text-align:center">不变</td>
-<td style="text-align:center">改变</td>
+<tr class="even">
+<td style="text-align: center;">镜面对称/手性</td>
+<td style="text-align: center;">不变</td>
+<td style="text-align: center;">改变</td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>主要考虑以下四种不变/等变性：</p>
 <ul>
 <li>置换(permutation)不变/等变性。实现这个是比较简单的，保证模型不依赖输入的顺序即可。</li>
@@ -278,30 +284,58 @@
 <li>手性似乎影响不大，研究较少。</li>
 <li>旋转不变/等变性。实际上容易出问题的就是这一部分。</li>
 </ul>
-<h2 id="一些群的名字"><a href="#一些群的名字" class="headerlink" title="一些群的名字"></a>一些群的名字</h2><ul>
+<h2 id="一些群的名字">一些群的名字</h2>
+<ul>
 <li>我们知道旋转矩阵是正交的，其行列式一定为 1。</li>
-<li>$O(n)$ 表示 n 阶正交矩阵群(othorgonal)，那么其行列式为 1 的表示旋转矩阵，-1 的表示旋转+对称。</li>
-<li>$SO(n)$ 是 $O(n)$ 的子群，S = special，表示全体旋转矩阵。</li>
-<li>$E(n)$ 表示 $O(n)$ 中的所有元素再加上平移变换(Euclidean)，也就是旋转+平移+对称。</li>
-<li>$SE(n)$ 表示任意旋转+平移。</li>
+<li><span class="math inline">\(O(n)\)</span> 表示 n
+阶正交矩阵群(othorgonal)，那么其行列式为 1 的表示旋转矩阵，-1
+的表示旋转+对称。</li>
+<li><span class="math inline">\(SO(n)\)</span> 是 <span
+class="math inline">\(O(n)\)</span> 的子群，S =
+special，表示全体旋转矩阵。</li>
+<li><span class="math inline">\(E(n)\)</span> 表示 <span
+class="math inline">\(O(n)\)</span>
+中的所有元素再加上平移变换(Euclidean)，也就是旋转+平移+对称。</li>
+<li><span class="math inline">\(SE(n)\)</span> 表示任意旋转+平移。</li>
 </ul>
-<h2 id="如何保证等变性"><a href="#如何保证等变性" class="headerlink" title="如何保证等变性"></a>如何保证等变性</h2><p>首先可以保证所有的操作是线性的，并且是很严格的线性，即计算 $\mathbf{y}=a\mathbf{x}+b$ 时，$a$ 和 $b$ 都必须是标量。</p>
-<p>另外可以引入内积，范数等进行标量化。</p>
-<script type="math/tex; mode=display">
-R\mathbf{a}\cdot R\mathbf{b}=\mathbf{a}\cdot \mathbf{b}\\\\</script><h2 id="EGNN"><a href="#EGNN" class="headerlink" title="EGNN"></a>EGNN</h2><p>传统 GNN 的工作流程可以分为三步：</p>
-<ol>
-<li>消息传递，通过两点距离 $a_{ij}$ 和两点的 feature/隐变量，套一个神经网络；</li>
+<h2 id="如何保证等变性">如何保证等变性</h2>
+<p>首先可以保证所有的操作是线性的，并且是很严格的线性，即计算 <span
+class="math inline">\(\mathbf{y}=a\mathbf{x}+b\)</span> 时，<span
+class="math inline">\(a\)</span> 和 <span
+class="math inline">\(b\)</span> 都必须是标量。</p>
+<p>另外可以引入内积，范数等进行标量化。 <span class="math display">\[
+R\mathbf{a}\cdot R\mathbf{b}=\mathbf{a}\cdot \mathbf{b}\\\\
+\]</span></p>
+<h2 id="egnn">EGNN</h2>
+<p>传统 GNN 的工作流程可以分为三步：</p>
+<ol type="1">
+<li>消息传递，通过两点距离 <span class="math inline">\(a_{ij}\)</span>
+和两点的 feature/隐变量，套一个神经网络；</li>
 <li>聚合，通常是将邻居的消息相加；</li>
 <li>迭代获得新的隐变量。</li>
 </ol>
-<script type="math/tex; mode=display">
-\mathbf{m}_{ij} = \phi_e(\mathbf{h}_i^l, \mathbf{h}_j^l, a_{ij})</script><script type="math/tex; mode=display">
-\mathbf{m}_{i} = \sum_{j \in \mathcal{N}(i)} m_{ij}</script><script type="math/tex; mode=display">
-\mathbf{h}_{i}^{l+1} = \phi_h(\mathbf{h}_i^l,\mathbf m_i)</script><p>这种模型只引入节点的标量距离，导致模型并不具有旋转等变性。直接把坐标加到消息传递的每一步就可以解决。</p>
-<script type="math/tex; mode=display">
-\mathbf{m}_{ij}=\phi_e(\mathbf{h}_{i}^{l},\mathbf{h}_j^{l},\lVert \mathbf{x}_i^l-\mathbf{x}_j^l\rVert_2^2,a_{ij})</script><script type="math/tex; mode=display">
-\mathbf{m}_i=\sum_{j\neq i}\mathbf{m}_{ij}</script><script type="math/tex; mode=display">
-\mathbf{h}_i^{l+1}=\phi_h(\mathbf{h}_i^l,\mathbf m_i),\ \mathbf{x}_i^{l+1}=\mathbf{x}_i^l+C\sum_{j\neq i}\phi_x(\mathbf{m}_{ij})</script><p>需要注意的是，这样得到的隐变量 $\mathbf{h}_l$ 是不变的。</p>
+<p><span class="math display">\[
+\mathbf{m}_{ij} = \phi_e(\mathbf{h}_i^l, \mathbf{h}_j^l, a_{ij})
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{m}_{i} = \sum_{j \in \mathcal{N}(i)} m_{ij}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{h}_{i}^{l+1} = \phi_h(\mathbf{h}_i^l,\mathbf m_i)
+\]</span></p>
+<p>这种模型只引入节点的标量距离，导致模型并不具有旋转等变性。直接把坐标加到消息传递的每一步就可以解决。
+<span class="math display">\[
+\mathbf{m}_{ij}=\phi_e(\mathbf{h}_{i}^{l},\mathbf{h}_j^{l},\lVert
+\mathbf{x}_i^l-\mathbf{x}_j^l\rVert_2^2,a_{ij})
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{m}_i=\sum_{j\neq i}\mathbf{m}_{ij}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{h}_i^{l+1}=\phi_h(\mathbf{h}_i^l,\mathbf m_i),\
+\mathbf{x}_i^{l+1}=\mathbf{x}_i^l+C\sum_{j\neq i}\phi_x(\mathbf{m}_{ij})
+\]</span> 需要注意的是，这样得到的隐变量 <span
+class="math inline">\(\mathbf{h}_l\)</span> 是不变的。</p>
 
     </div>
 
