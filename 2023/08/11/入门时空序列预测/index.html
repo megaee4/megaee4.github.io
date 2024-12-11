@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="时间序列预测时间序列预测是指使用过去的时间序列数据来预测未来的数据点。 时间序列分析的核心就是挖掘该时间序列中的自相关性。 时空序列预测时空序列包含了时间与空间上的信息。我们在这里使用的雷达数据就是典型的时空序列。 RNN循环神经网络(RNN)是一种简单的用于时间序列预测的神经网络模型。RNN的特点是其神经元之间存在循环连接，神经元接受输入数据以及上一个时间的隐藏状态。$$h_t &#x3D; \sigma">
+    <meta name="description" content="时间序列预测时间序列预测是指使用过去的时间序列数据来预测未来的数据点。 时间序列分析的核心就是挖掘该时间序列中的自相关性。 时空序列预测时空序列包含了时间与空间上的信息。我们在这里使用的雷达数据就是典型的时空序列。 RNN循环神经网络(RNN)是一种简单的用于时间序列预测的神经网络模型。RNN的特点是其神经元之间存在循环连接，神经元接受输入数据以及上一个时间的隐藏状态。  h_t &#x3D; \sigma">
 <meta property="og:type" content="article">
 <meta property="og:title" content="入门时空序列预测">
 <meta property="og:url" content="http://example.com/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/index.html">
 <meta property="og:site_name" content="Megaee的小屋">
-<meta property="og:description" content="时间序列预测时间序列预测是指使用过去的时间序列数据来预测未来的数据点。 时间序列分析的核心就是挖掘该时间序列中的自相关性。 时空序列预测时空序列包含了时间与空间上的信息。我们在这里使用的雷达数据就是典型的时空序列。 RNN循环神经网络(RNN)是一种简单的用于时间序列预测的神经网络模型。RNN的特点是其神经元之间存在循环连接，神经元接受输入数据以及上一个时间的隐藏状态。$$h_t &#x3D; \sigma">
+<meta property="og:description" content="时间序列预测时间序列预测是指使用过去的时间序列数据来预测未来的数据点。 时间序列分析的核心就是挖掘该时间序列中的自相关性。 时空序列预测时空序列包含了时间与空间上的信息。我们在这里使用的雷达数据就是典型的时空序列。 RNN循环神经网络(RNN)是一种简单的用于时间序列预测的神经网络模型。RNN的特点是其神经元之间存在循环连接，神经元接受输入数据以及上一个时间的隐藏状态。  h_t &#x3D; \sigma">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/1.png">
 <meta property="og:image" content="http://example.com/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/2.png">
@@ -238,11 +238,12 @@
         <h2 id="时间序列预测"><a href="#时间序列预测" class="headerlink" title="时间序列预测"></a>时间序列预测</h2><p>时间序列预测是指使用过去的时间序列数据来预测未来的数据点。</p>
 <p><strong>时间序列分析的核心就是挖掘该时间序列中的自相关性</strong>。</p>
 <h2 id="时空序列预测"><a href="#时空序列预测" class="headerlink" title="时空序列预测"></a>时空序列预测</h2><p>时空序列包含了时间与空间上的信息。我们在这里使用的雷达数据就是典型的时空序列。</p>
-<h2 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h2><p>循环神经网络(RNN)是一种简单的用于时间序列预测的神经网络模型。RNN的特点是其神经元之间存在循环连接，神经元接受输入数据以及上一个时间的隐藏状态。<br>$$<br>h_t = \sigma(W_{hh} \cdot h_{t-1} + W_{hx} \cdot x_t + b_h)<br>y_t = W_{hy} \cdot h_t + b_y<br>$$</p>
-<h2 id="梯度消失与梯度爆炸"><a href="#梯度消失与梯度爆炸" class="headerlink" title="梯度消失与梯度爆炸"></a>梯度消失与梯度爆炸</h2><p>在反向传播时，可能会经过多层的权重更新，导致梯度逐渐变小，最终趋近于零，这就是梯度消失。这种现象在 RNN 上尤其常见，因为存在循环连接时，很小的梯度会不断相乘。同样，如果梯度逐渐变大，这就是梯度爆炸。</p>
+<h2 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h2><p>循环神经网络(RNN)是一种简单的用于时间序列预测的神经网络模型。RNN的特点是其神经元之间存在循环连接，神经元接受输入数据以及上一个时间的隐藏状态。</p>
+<script type="math/tex; mode=display">
+h_t = \sigma(W_{hh} \cdot h_{t-1} + W_{hx} \cdot x_t + b_h)
+y_t = W_{hy} \cdot h_t + b_y</script><h2 id="梯度消失与梯度爆炸"><a href="#梯度消失与梯度爆炸" class="headerlink" title="梯度消失与梯度爆炸"></a>梯度消失与梯度爆炸</h2><p>在反向传播时，可能会经过多层的权重更新，导致梯度逐渐变小，最终趋近于零，这就是梯度消失。这种现象在 RNN 上尤其常见，因为存在循环连接时，很小的梯度会不断相乘。同样，如果梯度逐渐变大，这就是梯度爆炸。</p>
 <p>梯度消失会导致网络的前期层几乎不更新参数，难以收敛，梯度爆炸会导致权重更新过快，破坏网络的稳定性。为了解决 RNN 中的这些问题，出现了一些改进的模型，如 LSTM。</p>
 <h2 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h2><img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/1.png" class="" title="这是一张图片">
-
 <p>长短期记忆(LSTM)神经网络是一种特殊的 RNN。传统的 RNN 在捕捉长期依赖关系时通常表现不佳，容易出现梯度消失与梯度爆炸问题。</p>
 <p>LSTM 的核心思想是引入了门控机制，允许网络选择性地更新和忽略隐藏状态中的信息，从而更好地控制信息的流动。一个标准的 LSTM 单元包括三个门控和一个记忆单元：</p>
 <ol>
@@ -261,23 +262,42 @@
 <p>输出门决定在当前时间步要从记忆单元中提取多少信息作为输出。它通过一个 sigmoid 层和记忆单元的内容来生成一个输出。</p>
 </li>
 </ol>
-<h3 id="变种——增加peephole"><a href="#变种——增加peephole" class="headerlink" title="变种——增加peephole"></a>变种——增加peephole</h3><p>为了进一步增强 LSTM 的建模能力，我们允许门控使用记忆单元中的内容作为输入：<br>$$<br>\begin{align}<br>f_t&amp;=\sigma(W_{f}\cdot[h_{t-1},x_t,c_{t-1}]+b_f)\\<br>i_t&amp;=\sigma(W_{i}\cdot[h_{t-1},x_t,c_{t-1}]+b_i)\\<br>\hat{c_t}&amp;=\tanh(W_c\cdot[h_{t-1},x_t,c_{t-1}]+b_c)\\<br>c_t&amp;=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\<br>o_t&amp;=\sigma(W_{o}\cdot[h_{t-1},x_t,c_{t-1}]+b_o)\\<br>h_t&amp;=o_t\circ\tanh(c_t)<br>\end{align}<br>$$</p>
-<img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/2.png" class="" title="这是一张图片">
-
-
-
-<h2 id="ConvLSTM"><a href="#ConvLSTM" class="headerlink" title="ConvLSTM"></a>ConvLSTM</h2><p>ConvLSTM 将矩阵相乘的操作更换为卷积。通过卷积操作，实现了对时空信息的特征提取。<br>$$<br>\begin{align}<br>f_t&amp;=\sigma(W_{f}\ast[h_{t-1},x_t,c_{t-1}]+b_f)\\<br>i_t&amp;=\sigma(W_{i}\ast[h_{t-1},x_t,c_{t-1}]+b_i)\\<br>\hat{c_t}&amp;=\tanh(W_c\ast[h_{t-1},x_t,c_{t-1}]+b_c)\\<br>c_t&amp;=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\<br>o_t&amp;=\sigma(W_{o}\ast[h_{t-1},x_t,c_{t-1}]+b_o)\\<br>h_t&amp;=o_t\circ\tanh(c_t)<br>\end{align}<br>$$</p>
-<h2 id="Encoding-Forecasting-Structure"><a href="#Encoding-Forecasting-Structure" class="headerlink" title="Encoding Forecasting Structure"></a>Encoding Forecasting Structure</h2><img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/3.png" class="" title="这是一张图片">
-
-
-
-
-
-<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>我们使用的数据是20230530的雷达数据，存储格式为。通过雷达回波数据，我们可以利用 Z-R 关系估计降水量：<br>$$<br>Z=aR^b<br>$$<br>其中 $Z$ 为回波强度，$R$ 为降水量。</p>
-<p>此处的雷达数据中存放的回波强度单位为 dBZ，这意味着<br>$$<br>dBZ=10\lg a + 10b\lg R<br>$$<br>其范围大致在 $[-20,70]$。</p>
+<h3 id="变种——增加peephole"><a href="#变种——增加peephole" class="headerlink" title="变种——增加peephole"></a>变种——增加peephole</h3><p>为了进一步增强 LSTM 的建模能力，我们允许门控使用记忆单元中的内容作为输入：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+f_t&=\sigma(W_{f}\cdot[h_{t-1},x_t,c_{t-1}]+b_f)\\\\
+i_t&=\sigma(W_{i}\cdot[h_{t-1},x_t,c_{t-1}]+b_i)\\\\
+\hat{c_t}&=\tanh(W_c\cdot[h_{t-1},x_t,c_{t-1}]+b_c)\\\\
+c_t&=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\\\
+o_t&=\sigma(W_{o}\cdot[h_{t-1},x_t,c_{t-1}]+b_o)\\\\
+h_t&=o_t\circ\tanh(c_t)
+\end{align}</script><img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/2.png" class="" title="这是一张图片">
+<h2 id="ConvLSTM"><a href="#ConvLSTM" class="headerlink" title="ConvLSTM"></a>ConvLSTM</h2><p>ConvLSTM 将矩阵相乘的操作更换为卷积。通过卷积操作，实现了对时空信息的特征提取。</p>
+<script type="math/tex; mode=display">
+\begin{align}
+f_t&=\sigma(W_{f}\ast[h_{t-1},x_t,c_{t-1}]+b_f)\\\\
+i_t&=\sigma(W_{i}\ast[h_{t-1},x_t,c_{t-1}]+b_i)\\\\
+\hat{c_t}&=\tanh(W_c\ast[h_{t-1},x_t,c_{t-1}]+b_c)\\\\
+c_t&=f_t\circ c_{t-1}+i_t\circ \hat{c_t}\\\\
+o_t&=\sigma(W_{o}\ast[h_{t-1},x_t,c_{t-1}]+b_o)\\\\
+h_t&=o_t\circ\tanh(c_t)
+\end{align}</script><h2 id="Encoding-Forecasting-Structure"><a href="#Encoding-Forecasting-Structure" class="headerlink" title="Encoding Forecasting Structure"></a>Encoding Forecasting Structure</h2><img src="/2023/08/11/%E5%85%A5%E9%97%A8%E6%97%B6%E7%A9%BA%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/3.png" class="" title="这是一张图片">
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>我们使用的数据是20230530的雷达数据，存储格式为。通过雷达回波数据，我们可以利用 Z-R 关系估计降水量：</p>
+<script type="math/tex; mode=display">
+Z=aR^b</script><p>其中 $Z$ 为回波强度，$R$ 为降水量。</p>
+<p>此处的雷达数据中存放的回波强度单位为 dBZ，这意味着</p>
+<script type="math/tex; mode=display">
+dBZ=10\lg a + 10b\lg R</script><p>其范围大致在 $[-20,70]$。</p>
 <p>另外，雷达存储的 dBZ 数据并不是严格的三维网格数据。我们通过插值的方法，将其转化为分辨率 2km 的三位网格数据，随后垂直方向取第一个通道的二维数据作为原始数据。</p>
 <h3 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h3><p>输入的雷达数据中有较多的缺测值，我们统一用 -20 替换。</p>
-<p>由于所构建的模型的输出范围是$[0,1]$，我们对所有的 dBZ 都进行了如下操作：<br>$$<br>P=\dfrac{dBZ+10}{70}\\<br>input=\begin{cases}<br>0,P&lt;0\\<br>1,P&gt;1\\<br>P,else<br>\end{cases}<br>$$<br>这样我们的输入被映射到 $[0,1]$ 上，同时筛除了部分异常点。</p>
+<p>由于所构建的模型的输出范围是$[0,1]$，我们对所有的 dBZ 都进行了如下操作：</p>
+<script type="math/tex; mode=display">
+P=\dfrac{dBZ+10}{70}\\\\
+input=\begin{cases}
+0,P<0\\\\
+1,P>1\\\\
+P,else
+\end{cases}</script><p>这样我们的输入被映射到 $[0,1]$ 上，同时筛除了部分异常点。</p>
 
     </div>
 
@@ -360,7 +380,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 

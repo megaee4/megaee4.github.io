@@ -266,8 +266,12 @@
 <li>背景知识，目标谓词以外的其他谓词实例化结果</li>
 </ul>
 <p>我们给目标谓词加上若干前提约束谓词，直到推理规则不覆盖任何反例。增加前提后，对目标谓词或前提约束谓词中的变量依<br>据背景知识赋予具体值，可以得到其正例与反例数量。</p>
-<p>我们引入信息量的概念：<br>$$<br>I(x)=-\log p(x)<br>$$<br>其中 $p(x)$ 为取事件 $x$ 的概率。</p>
-<p>在增加前提约束谓词中，由信息量的公式，可以计算 FOIL 信息增益<br>$$<br>\text{FOIL_Gain}=\hat{m}<em>{+}(\log_2\dfrac{\hat{m}</em>+}{\hat{m}<em>++\hat{m}</em>-}-\log_2\dfrac{m_+}{m_++m_-})<br>$$<br>其中 $\hat{m}<em>+$ 与 $\hat{m}</em>-$ 为增加前提约束谓词的规则后所覆盖的正例与反例数量，$m_+$ 与 $m_-$ 是原推理规则所覆盖的正例与反例数量。</p>
+<p>我们引入信息量的概念：</p>
+<script type="math/tex; mode=display">
+I(x)=-\log p(x)</script><p>其中 $p(x)$ 为取事件 $x$ 的概率。</p>
+<p>在增加前提约束谓词中，由信息量的公式，可以计算 FOIL 信息增益</p>
+<script type="math/tex; mode=display">
+\text{FOIL_Gain}=\hat{m}_{+}(\log_2\dfrac{\hat{m}_+}{\hat{m}_++\hat{m}_-}-\log_2\dfrac{m_+}{m_++m_-})</script><p>其中 $\hat{m}_+$ 与 $\hat{m}_-$ 为增加前提约束谓词的规则后所覆盖的正例与反例数量，$m_+$ 与 $m_-$ 是原推理规则所覆盖的正例与反例数量。</p>
 <p>选取使信息增益最大的前提约束谓词，并重复该过程，直到推理规则覆盖训练样本集合中正例，不覆盖任意反例。</p>
 <p>整个算法的流程如下：</p>
 <ol>
@@ -279,8 +283,6 @@
 </ol>
 <p>下面的代码是实现 FOIL 算法的主要代码。对于每个前提约束谓词，尝试将其加入到现有规则中，并计算 $\text{FOIL_GAIN}$，选择使信息增益最大的前提约束谓词，将其加入现有规则，并重复这一过程直到规则覆盖所有正例，并不覆盖任何负例。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">getPres</span>(<span class="params">res, sentences, prem, added</span>):</span><br><span class="line">    <span class="comment"># get the reasoning result</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        maxgain = -<span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">        maxprem = sentence(<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">        mpos, mneg = getPosAndNeg(res, sentences, added)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> prem:</span><br><span class="line">            <span class="comment"># find the premise with largest FOIL_GAIN</span></span><br><span class="line">            added.append(i) <span class="comment"># add i into premises</span></span><br><span class="line">            newpos, newneg = getPosAndNeg(res, sentences, added) <span class="comment"># get \hat&#123;m&#125;_+ and \hat&#123;m&#125;_-</span></span><br><span class="line">            gain = informationGain(mpos, mneg, newpos, newneg) <span class="comment"># calculate FOIL_GAIN</span></span><br><span class="line">            <span class="keyword">if</span> gain &gt; maxgain:</span><br><span class="line">                maxgain = gain</span><br><span class="line">                maxprem = i</span><br><span class="line">            added.remove(i)</span><br><span class="line">        added.append(maxprem)</span><br><span class="line">        prem.remove(maxprem)</span><br><span class="line">        newpos, newneg = getPosAndNeg(res, sentences, added)</span><br><span class="line">        <span class="keyword">if</span> newpos == mpos <span class="keyword">and</span> newneg == <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># if any negative example is not covered and all positive examples are covered</span></span><br><span class="line">            <span class="keyword">return</span> added          </span><br><span class="line">    <span class="keyword">return</span> added</span><br></pre></td></tr></table></figure>
-
-
 
     </div>
 
@@ -363,7 +365,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
